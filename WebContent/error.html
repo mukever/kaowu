@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>出错啦</title>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+    html{
+        height: 100%;
+        background: url('imgs/bg-register.png');
+        background:
+        linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)),
+        url('imgs/bg-register.png');
+    }
+    body{
+        background-color: transparent;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
+    .fa-frown-o{
+        position: relative;
+        top: 81px;
+        left: 167px;
+        float: left;
+        color: #fd754b;
+        font-size: 30em!important;
+        opacity: 0.8;
+        text-shadow: 0 0 30px #000;
+    }
+    .error{
+        position: relative;
+        top: 200px;
+        left: 250px;
+    }
+    .error span:first-child{
+        color: #fff;
+        font-size: 5em;
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-weight: bolder;
+        opacity: 0.8;
+        text-shadow: 4px 4px #000;
+    }
+    .error span:last-child{
+        color: #fff;
+        font-size: 2em;
+        font-family: 宋体;
+        font-weight: bolder;
+        text-shadow: 10px 10px 60px #000;
+    }
+    button{
+        position: relative;
+        top: 281px;
+        left: 369px;
+        display: block;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+        color: #fff;
+        background-color: #0072b5;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        cursor: pointer;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    button:hover{
+        background-color: #00a1cb;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    button:active{
+        background-color: #00619a;
+        -webkit-transition: all 0.1s
+        -ms-transition: all 0.1s;
+        -o-transition: all 0.1s;
+        transition: all 0.1s;
+    }
+</style>
+    <i class="fa fa-frown-o"></i>
+    <div class="error">
+        <span>ERROR.</span>
+        <br>
+        <br>
+        <br>
+        <br>
+        <span>管理员还未审核，再等等吧...</span>
+    </div>
+    <button class="back" id="btn"><i class="fa fa-fw fa-mail-reply"></i> 返 回</button>
+</body>
+</html>
+<script type="text/javascript">
+    var btn = document.getElementById("btn");
+    btn.onclick = function(){
+        window.location.href = "login.html";
+    }
+</script>

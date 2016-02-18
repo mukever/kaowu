@@ -1,0 +1,463 @@
+*{
+    margin: auto;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: auto;
+    background:#4297d7 url(../imgs/index_bg.jpg)no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.header{
+    /*border: 2px solid #4297d7;*/
+    /*background-color: #4297d7;*/
+    /*background: url("../imgs/logo_school.png")no-repeat;*/
+}
+/*i{*/
+    /*color: #4d4d4d;*/
+    /*text-shadow: #000 0 -1px 0;*/
+/*}*/
+/*i:hover{*/
+    /*transition: all 0.20s ease-in-out;*/
+    /*text-shadow: #ffffff 1px 1px 5px;*/
+    /*color: #ffffff;*/
+/*}*/
+.footer{
+    background-image: url("../imgs/bg-footer-noise.jpg");
+    width: 100%;
+    height: 150px;
+    background-color: #222222;
+    position: absolute;
+    top: 828px;
+    /*box-shadow: #222222 0 -3px 10px;*/
+}
+.navbar_left{
+    /*border: 2px solid #4297d7;*/
+    width: 300px;
+    height: 130px;
+    float: left;
+    position: relative;
+    left: 5%;
+    top: 8%;
+}
+/*.navbar_left:after{*/
+    /*content: "";*/
+    /*position: absolute;*/
+    /*left: 373px;*/
+    /*width: 0;*/
+    /*height: 130px;*/
+    /*border: solid 1px #333;*/
+    /*box-shadow: #000 -1px 0 0;*/
+    /*border-left: none;*/
+/*}*/
+.navbar_left ul{
+    float: left;
+    list-style-type: none;
+}
+.navbar_left .left ul{
+    float: left;
+}
+.navbar_left .right ul{
+    float: left;
+    position: relative;
+    left: 30px;
+}
+.navbar_left li{
+    margin-top: 8px;
+}
+.navbar_left a:link,a:visited{
+    font-family: "楷体";
+    font-size: large;
+    font-weight: bold;
+    color: #aaa;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+}
+.navbar_left a:hover,a:active{
+    transition: all 0.20s ease-in-out;
+    text-shadow: #ffffff 1px 1px 5px;
+    color: #ffffff;
+}
+.navbar_right{
+    /*border: 2px solid #4297d7;*/
+    color: brown;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: small;
+    width: 600px;
+    height: 130px;
+    float: left;
+    position: relative;
+    left: 18%;
+    top: 8%;
+    cursor: default;
+}
+.navbar_right .explorer li{
+    margin-top: 20px;
+    margin-left: 30px;
+    padding-left: 20px;
+    display: inline-block;
+}
+.navbar_right a:hover{
+    transition: all 0.30s ease-in-out;
+    color: #ffffff!important;
+}
+.header h1{
+    position: relative;
+    top: 40px;
+    left: 30px;
+    color: #ffffff;
+    font-size: xx-large;
+    cursor: default;
+}
+.header .logo{
+    position: relative;
+    top: 20px;
+    float: left;
+    /*width: 500px;*/
+}
+.container{
+    width: 1152px;
+    height: 500px;
+    margin: 40px auto;
+    /*background-color: #4297d7;*/
+    /*border: 2px solid #4297d7;*/
+}
+.content_left{
+    width: 60%;
+    height: 100%;
+    /*border: 2px solid firebrick;*/
+    float: left;
+
+}
+.content_right{
+    width: 35%;
+    height: 100%;
+    /*border: 2px solid firebrick;*/
+    float: right;
+}
+.left_font_style_1 {
+    width: 140px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 楷体;
+    position: relative;
+    top: 60px;
+    left: 100px;
+}
+.left_font_style_2 {
+    width: 100px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 楷体;
+    position: relative;
+    top: 30px;
+    left: 0;
+    /*float: left;*/
+}
+.left_font_style_3 {
+    width: 140px;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 楷体;
+    position: relative;
+    top: 40px;
+    left: 0;
+}
+.right_font_style_1{
+    width: 125px;
+    color: #ffffff;
+    font-size: 28px;
+    font-family: 楷体;
+    text-align: center;
+    position: relative;
+    top: 10px;
+}
+.right_font_style_2{
+    width: 60px;
+    color: #ffffff;
+    font-size: 28px;
+    font-family: 楷体;
+    margin: 0 0;
+    position: relative;
+    top:43px;
+    left: 30px;
+}
+.right_font_style_3{
+    width: 120px;
+    color: #ffffff;
+    font-size: 28px;
+    font-family: 楷体;
+    margin: 0 0;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    left: 18px;
+}
+.right_font_style_4{
+    width: 125px;
+    color: #ffffff;
+    font-size: 28px;
+    font-family: 楷体;
+    margin: 0 0;
+    position: relative;
+    top: 43px;
+    left: 215px;
+}
+.content_left .nav_1{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    width: 340px;
+    height: 150px;
+    background: url("../imgs/Bulleted_List.png")no-repeat left 280px top 58px;
+    background-color: skyblue;
+    box-shadow: skyblue 1px 1px 5px;
+}
+.content_left .nav_1:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: olivedrab;
+    cursor: pointer;
+    box-shadow: olivedrab 1px 1px 5px;
+}
+.content_left .nav_1:active{
+    transition: all 0.1s;
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+}
+.icon_room{
+    position: relative;
+    left: 50px;
+    top: -20px;
+}
+.content_left .nav_2{
+    float: left;
+    position: relative;
+    left: 8px;
+    width: 340px;
+    height: 150px;
+    background-color: gold;
+    box-shadow: gold 1px 1px 5px;
+}
+.content_left .nav_3{
+    float: left;
+    position: relative;
+    top: 8px;
+    width: 166px;
+    height: 150px;
+    background-color: salmon;
+    box-shadow: salmon 1px 1px 5px;
+}
+.content_left .nav_4{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    top: 8px;
+    left: 8px;
+    width: 340px;
+    height: 150px;
+    background: url("../imgs/Bulleted_List.png")no-repeat left 280px top 58px;
+    background-color: limegreen;
+    box-shadow: limegreen 1px 1px 5px;
+}
+.content_left .nav_4:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: maroon;
+    cursor: pointer;
+    box-shadow: maroon 1px 1px 5px;
+}
+.content_left .nav_4:active{
+    transition: all 0.1s;
+    /*outline: darkred solid 2px;*/
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+}
+.icon_class{
+    position: relative;
+    left: 50px;
+    top: -20px;
+
+}
+.content_left .nav_5{
+    transition: all 0.50s ease-in-out;
+    float: right;
+    position: relative;
+    top: 8px;
+    right: 3px;
+    width: 166px;
+    height: 150px;
+    background: url("../imgs/Bulleted_List.png")no-repeat left 110px top 28px;
+    background-color: darkmagenta;
+    box-shadow: darkmagenta 1px 1px 5px;
+}
+.content_left .nav_5:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: #e17009;
+    cursor: pointer;
+    box-shadow: #e17009 1px 1px 5px;
+}
+.content_left .nav_5:active{
+    transition: all 0.20s;
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+}
+.icon_test{
+    position: relative;
+    left: 50px;
+    top: 40px;
+}
+.content_left .nav_6{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    top: 16px;
+    width: 340px;
+    height: 150px;
+    background: url("../imgs/next.png")no-repeat left 220px top 33px;
+    background-color: gold;
+    box-shadow: gold 1px 1px 5px;
+}
+.content_left .nav_6:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: mediumseagreen;
+    cursor: pointer;
+    box-shadow: mediumseagreen 1px 1px 5px;
+}
+.content_left .nav_6:active{
+    transition: all 0s;
+    -webkit-transform: scale(0.95);
+    -moz-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    transform: scale(0.95);
+}
+.content_left .nav_7{
+    float: left;
+    position: relative;
+    top: 16px;
+    left: 8px;
+    width: 340px;
+    height: 150px;
+    background-color: orangered;
+    box-shadow: orangered 1px 1px 5px;
+}
+.content_right .nav_1 {
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    width: 166px;
+    height: 150px;
+    background-color: salmon;
+    box-shadow: salmon 1px 1px 5px;
+}
+.content_right .nav_1:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: blueviolet;
+    cursor: pointer;
+    box-shadow: blueviolet 1px 1px 5px;
+}
+.icon_list {
+    position: relative;
+    left: 47px;
+    top: 24px;
+}
+.content_right .nav_2{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    left: 8px;
+    width: 229px;
+    height: 150px;
+    background-color: limegreen;
+    box-shadow: limegreen 1px 1px 5px;
+}
+.content_right .nav_2:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: lightslategray;
+    cursor: pointer;
+    box-shadow: lightslategray 1px 1px 5px;
+}
+.icon_add {
+    position: relative;
+    top: -18px;
+    left: 110px;
+}
+.content_right .nav_3{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    top: 8px;
+    width: 229px;
+    height: 150px;
+    background-color: midnightblue;
+    box-shadow: midnightblue 1px 1px 5px;
+}
+.content_right .nav_3:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: darkolivegreen;
+    cursor: pointer;
+    box-shadow: darkolivegreen 1px 1px 5px;
+}
+.content_right .nav_3:active{
+    transition: all 0s;
+    outline: solid skyblue 2px;
+}
+.content_right .nav_4{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    left: 8px;
+    top: 8px;
+    width: 166px;
+    height: 150px;
+    background-color: orangered;
+    box-shadow: orangered 1px 1px 5px;
+}
+.content_right .nav_4:hover{
+    transition: all 0.5s ease-in-out;
+    background-color: dodgerblue;
+    cursor: pointer;
+    box-shadow: dodgerblue 1px 1px 5px;
+}
+.icon_add_test {
+    position: relative;
+    top: -30px;
+    left: 100px;
+}
+.icon_bin {
+    position: relative;
+    top: -10px;
+    left: 30px;
+}
+.content_right .nav_5{
+    transition: all 0.50s ease-in-out;
+    float: left;
+    position: relative;
+    top: 16px;
+    width: 403px;
+    height: 150px;
+    background-color: darkmagenta;
+    box-shadow: darkmagenta 1px 1px 5px;
+}
+.content_right .nav_5:hover{
+    transition: all 0.50s ease-in-out;
+    background-color: red;
+    cursor: pointer;
+    box-shadow: red 1px 1px 5px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="flat-ui/css/flat-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+<!--定义error样式-->
+<style type="text/css">
+    .border-error{
+        border: 2px solid red!important;
+    }
+    .content-error{
+        color: red!important;
+    }
+</style>
+    <div class="main">
+        <div class="login-screen">
+            <div class="login-icon">
+                <img src="imgs/Clipboard.png" alt="Welcome">
+                <h4>Welcome to<small>SAU</small></h4>
+                <a class="register" href="register.html">用户注册</a>
+            </div>
+            <div class="login-form">
+                <div class="control-group" id="control-username">
+                    <input type="text" name="user" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" autocomplete="off"/>
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+                <div class="control-group" id="control-password">
+                    <input type="password" name="pwd" class="form-control login-field" value="" placeholder="Password" id="login-pass"/>
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    <a class="btn btn-primary btn-large btn-block" href="#" id="sub-btn">Login</a>
+                </div>
+                <div class="remember-me" id="remember-me">
+                    <h4>记住我<small style="color: red;font-family: 楷体">(请不要在公用电脑开启)</small></h4>
+                </div>
+                <div class="bootstrap-switch-square">
+                    <input type="checkbox" data-toggle="switch" name="square-switch" id="switch-02" />
+                </div>
+                <!--<a class="login-link" href="#">监考人注册</a>-->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/login.js"></script>
+<script src="flat-ui/js/flat-ui.min.js"></script>
+<script src="flat-ui/js/application.js"></script>
+<!--<script>-->
+    <!--$("#sub-btn").click(function(){-->
+        <!--alert($("#login-name").val());-->
+        <!--alert($("#login-pass").val());-->
+        <!--if($('div').hasClass('bootstrap-switch-on')){-->
+            <!--alert("0");-->
+        <!--}-->
+    <!--});-->
+    <!--//    $('#switch-02').off({-->
+<!--//        'init.bootstrapSwitch': function() {-->
+<!--//            $('#switch-02').bootstrapSwitch("state", true);-->
+<!--//        },-->
+<!--//        'switchChange.bootstrapSwitch': function(event, state) {-->
+<!--//            alert("change");-->
+<!--//            // 按钮状态发生改变-->
+<!--//        }-->
+<!--//    });-->
+<!--</script>-->
+</html>

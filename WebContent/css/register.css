@@ -1,0 +1,420 @@
+html{
+    height: 100%;
+    background: url('../imgs/bg-register.png');
+    background:
+        linear-gradient(rgba(196, 102, 0, 0.2), rgba(155, 89, 182, 0.2)),
+        url('../imgs/bg-register.png');
+}
+body{
+    background-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+.main{
+    width: 550px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    /* background: #fff; */
+    /* background: whitesmoke; */
+    /* background:
+    -webkit-linear-gradient(0deg, #eeeeee 0%, whitesmoke 100%); */
+    background:
+    -moz-linear-gradient(0deg, #eeeeee 0%, whitesmoke 100%);
+    background:
+    -o-linear-gradient(0deg, #eeeeee 0%, whitesmoke 100%);
+    background: linear-gradient(0deg, #eeeeee 0%, whitesmoke 100%);/* W3C */
+}
+h1{
+    text-align: center;
+    font-size: larger;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif!important;
+    line-height: 0px;
+    margin: 0 0 0 0;
+}
+.header{
+    width: 100%;
+    height: 20%;
+    background-color: #3e4a53;
+    border-radius: 4px 4px 0 0;
+}
+.header span{
+    position: relative;
+    top: 4px;
+    left: 50px;
+    display: block;
+    color: #fff;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+.header h4{
+    position: relative;
+    top: -6px;
+    left: 200px;
+    display: block;
+    color: #fff;
+    font-family: 隶书;
+    font-size: 23px;
+    font-weight: bold;
+    opacity: 0.9;
+}
+.fa-rocket{
+    position: relative;
+    top: -85px;
+    left: 426px;
+    color: #fff;
+    opacity: 0.9
+}
+.bar {
+    position: relative;
+    top: -19px;
+    counter-reset: step;
+}
+.bar li{
+    background-color: #b8c8d7;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-left: 80px;
+    border-radius: 30px;
+}
+.actived{
+    background-color: #b8c8d7;
+    animation: change-color-ease 0.5s;
+}
+.actived:after{
+    content: "";
+    margin-left: 40px;
+    margin-top: -19px;
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: #2bb1ee;
+    animation: change-width-ease 0.5s;
+}
+.active{
+    background-color: #2bb1ee!important;
+    animation: change-color-plus 0.5s;
+}
+.active-last{
+    background-color: #2bb1ee!important;
+    animation: change-color-plus 0.5s;
+}
+.show{
+    animation: show-ease 0.5s;
+}
+@keyframes show-ease {
+    from{
+        opacity: 0;
+        top: -100px;}
+    to{
+        opacity: 1;
+        top: 0;}
+}
+@keyframes change-width-plus {
+    from{
+        width:0;}
+    to{
+        width: 88px;}
+}
+@keyframes change-width-ease {
+    from{
+        width: 88px;}
+    to{
+        width: 0;}
+}
+@keyframes change-color-plus {
+    from{
+        background-color: #b8c8d7;}
+    to{
+        background-color: #2bb1ee}
+}
+@keyframes change-color-ease {
+    from{
+        background-color: #2bb1ee;}
+    to{
+        background-color: #b8c8d7;}
+}
+.active:after{
+    content: "";
+    margin-left: 40px;
+    margin-top: -19px;
+    display: block;
+    width: 88px;
+    height: 5px;
+    background-color: #2bb1ee;
+    animation: change-width-plus 0.5s;
+}
+.bar li span{
+    display: block;
+    color: #f9f9f9;
+    text-align: center;
+    line-height: 37px;
+    font-family: 幼圆;
+    font-size: 1.5em!important;
+    font-weight: bold;
+}
+form{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 300px;
+}
+fieldset{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+button{
+    /*font-size: larger!important;*/
+    /*font-family: Lato, Helvetica, Arial, sans-serif!important;*/
+    font-weight: bolder!important;
+}
+.btn-success{
+    position: relative;
+    top: 50px;
+    left: 300px;
+}.btn-danger{
+     position: relative;
+     top: 50px;
+     left: 300px;
+ }
+.btn-inverse{
+    position: relative;
+    top: 50px;
+    left: 90px;
+}
+.btn-default{
+     position: relative;
+     top: 50px;
+     left: 90px;
+}
+.fa-smile-o{
+    position: relative;
+    top: 20px;
+    left: 10px;
+    color: #2ecc71;
+    font-size: 10em;
+}
+.congratulate{
+    position: relative;
+    top: 10px;
+    left: -100px;
+    width: 550px;
+}
+.congratulate li{
+    float: left;
+}
+.message{
+    position: relative;
+    top: 66px;
+    color: #3e4a53;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+.message div span:first-child{
+    color: #2ecc71;
+}
+
+/*颜色样式*/
+.color-normal{
+    background-color: #1abc9c!important;
+}
+.color-hover{
+    background-color: #2ff2bf;
+}
+.color-dark{
+    background-color: #16a085!important;
+}
+
+.select-college{
+    color: #fff;
+    width: 385px;
+    height: 42px;
+    background-color: #1abc9c;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+}
+.college-chosen{
+    background-color: #1abc9c;
+    display: block;
+    border-radius: 6px;
+    width: 385px;
+    height: 42px;
+    margin: 0;
+}
+.college-chosen:hover{
+    background-color: #2ff2bf;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.college-chosen span{
+    line-height: 42px;
+    position: relative;
+    margin-left: 11px;
+}
+#icon-down{
+    background-color: #1abc9c;
+    position: relative;
+    float: right;
+    font-size: 1.5em!important;
+    padding-top: 8px;
+    display: block;
+    border-radius: 0 6px 6px 0;
+    width: 60px;
+    height: 100%;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+#icon-down:after{
+    content: "";
+    position: relative;
+    top: -34px;
+    left: 0px;
+    display: block;
+    width: 2px;
+    height: 42px;
+    background: #16a085;
+}
+.college-group{
+    clear: both;
+    position: relative;
+    top: 20px;
+    width: 100%;
+    height: 150px;
+    background-color: #34495e;
+    border-radius: 6px;
+}
+.optioned{
+    background-color: #1abc9c;
+}
+.college-group:before{
+    content: "";
+    border-style: solid;
+    border-width: 0 9px 9px 9px;
+    border-color: transparent transparent #34495e transparent;
+    height: 0;
+    position: absolute;
+    left: 336px;
+    top: -8px;
+    width: 0;
+    -webkit-transform: rotate(360deg);
+}
+.college-group ul{
+    clear: both;
+    padding: 0;
+    color: #fff;
+    height: 150px;
+    width: 100%;
+    overflow-y: auto;
+}
+.college-group ul li{
+    clear: both;
+    position: relative;
+    left: 0;
+    height: 30px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    line-height: 30px;
+    list-style-type: none;
+    border-radius: 4px;
+    zoom: 1;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.college-group ul li:hover{
+    background-color: #1abc9c;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+a{
+    clear: both;
+    position: relative;
+    margin-left: 10px;
+    color: #fff;
+    display: block;
+    width: 256px;
+    height: 100%;
+    cursor: pointer;
+    font-family: 楷体;
+    font-size: 17px;
+    font-style: normal;
+}
+a:hover{
+    color: #fff;
+}
+.college-group-show{
+    opacity: 1;
+    animation: college-group-show 0.5s;
+}
+.college-group-hidden{
+    opacity: 0;
+    animation: college-group-hidden 0.5s;
+}
+@keyframes college-group-hidden {
+    from{opacity: 1;
+        top: 20px;}
+    to{opacity: 0;
+        top: -4px;}
+}
+@keyframes college-group-show {
+    from{
+        opacity: 0;
+        top: -4px;}
+    to{opacity: 1;
+        top: 20px;}
+}
+/*all-college div滚动条样式*/
+/*IE*/
+.all-college{
+    scrollbar-face-color: #537597;
+    scrollbar-highlight-color: #34495e;
+    scrollbar-base-color: #2c3e50;
+    scrollbar-track-color: #2c3e50;
+    scrollbar-3dlight-color: #537597;
+}
+
+/*-webkit内核*/
+.all-college::-webkit-scrollbar{
+    width: 6px;
+    height: auto;
+    border-radius: 6px;
+    background-color: #2c3e50;
+}
+.all-college::-webkit-scrollbar-thumb{
+    background-color: #537597;
+    border-radius: 10px;
+}
+.all-college::-webkit-scrollbar-button{
+    display: none;
+}
+.all-college::-webkit-scrollbar-track-piece{
+    background-color: #2c3e50;
+    border-radius: 6px;
+}
+

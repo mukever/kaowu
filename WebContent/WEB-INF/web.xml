@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>/login.html</welcome-file>
+  </welcome-file-list>
+  
+  
+  <!-- 通过getServletContext().getInitParameter("XX")读取 -->
+	<context-param>
+	   <param-name>driver</param-name>
+	   <param-value>com.mysql.jdbc.Driver</param-value>
+	</context-param>
+	
+	<context-param>
+	   <param-name>url</param-name>
+	   <param-value>jdbc:mysql://localhost:3306/kaowu</param-value>
+	</context-param>
+	
+	<context-param>
+	   <param-name>username</param-name>
+	   <param-value>root</param-value>
+	</context-param>
+	
+	<context-param>
+	   <param-name>password</param-name>
+	   <param-value>mysqlroot</param-value>
+	</context-param>
+</web-app>

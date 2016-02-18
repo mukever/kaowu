@@ -1,0 +1,8 @@
+//function gettime(user){
+	 	//    $.post("Sign_getdata.action",{username:user});
+	 	 //  <% System.out.print("前段显示"+request.getSession().getAttribute("data")); %>  
+	 	 //    var s =  '<%=request.getSession().getAttribute("data")%>';
+	 	 //    //alert(s);
+	 	 //    return  s ;
+	 	    
+		//};    

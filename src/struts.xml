@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"  "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="struts" namespace="/" extends="struts-default,json-default">
+
+		<action name="Login" class="com.action.kaowu.sau.www.Login">
+			<result name = "success"  type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="input">/login.html</result>
+		</action>
+		<action name="Register" class="com.action.kaowu.sau.www.Register">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+
+		<action name="Greate_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
+			<result name="add">/Gradeinfo.jsp</result>
+			<result name="delete">/Gradeinfo.jsp</result>
+			<result name="info">/Gradeinfo.jsp</result>
+			<result name="updata">/Gradeinfoupdate.jsp</result>
+			<result name="success">/index.html</result>
+		</action>
+
+		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
+			<result name="updata">/Classinfoupdate.jsp</result>
+			<result name="delete">/Classinfo.jsp</result>
+			<result name="classinfo">/Classinfo.jsp</result>
+			<result name="success">/index.html</result>
+		</action>
+
+		<action name="Sign_*" class="com.action.kaowu.sau.www.Sign" method="{1}">
+			<result name="success">/idnex.html</result>
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+
+		</action>
+		<action name="WeChat_*" class="com.action.kaowu.sau.www.WeChat" method="{1}">
+			
+		</action>
+
+		<!-- 下面的action 没有配置 -->
+		<action name="Quit" class="com.action.kaowu.sau.www.Quit">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="CreateNewTest_{1}" class="com.action.kaowu.sau.www.CreateNewTest"
+			method="{1}">
+
+			<result name="{1}">/create_new_test.jsp</result>
+			<result name="success">/index.html</result>
+		</action>
+		<action name="WechatImplt" class="com.action.kaowu.sau.www.Quit">
+			<result name="success">/index.html</result>
+		</action>
+		<action name="Browse" class="com.action.kaowu.sau.www.Quit">
+			<result name="success">/index.html</result>
+		</action>
+
+		<action name="InfoUpdate" class="com.action.kaowu.sau.www.Quit">
+			<result name="success">/index.html</result>
+		</action>
+		<action name="Delete" class="com.action.kaowu.sau.www.Quit">
+			<result name="success">/login.html</result>
+		</action>
+	</package>
+
+</struts>    
