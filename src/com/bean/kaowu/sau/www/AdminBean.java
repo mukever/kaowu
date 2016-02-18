@@ -1,6 +1,6 @@
 package com.bean.kaowu.sau.www;
 
-public class UserBean {
+public class AdminBean {
 	
 	//用户名和密码
 	private String username;
@@ -18,12 +18,12 @@ public class UserBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public UserBean(String username, String password) {
+	public AdminBean(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
 	
 	//方便反射
-	public UserBean() {}
+	public AdminBean() {}
 	
 }

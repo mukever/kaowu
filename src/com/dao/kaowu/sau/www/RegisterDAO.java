@@ -1,9 +1,15 @@
 package com.dao.kaowu.sau.www;
 
+import java.awt.Window.Type;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.bean.kaowu.sau.www.GrateBean;
+import com.bean.kaowu.sau.www.TeacherBean;
 import com.db.kaowu.sau.www.DBUnit;
 
 public class RegisterDAO {
@@ -59,20 +65,20 @@ public class RegisterDAO {
 	}
     
   //向数据库中添加注册信息
-    public static String add(String Username, String Password, String Therid,String Age,String Wechat, String College) {
+    public static String add(TeacherBean teacher) {
     		String type = "1";
             Connection connection = null;
         	
         	connection = DBUnit.getConn();
-        	String query_therid_sql =  "select * from db_register  where  Therid='"+Therid+"'";
+        	String query_therid_sql =  "select * from db_register  where  Therid='"+teacher.getTherid()+"'";
         	String sql = "insert into db_register(Username,Password,Age,Wechat,College,"
         				+ "Therid,Type) values("
-        				+ "'"+Username+"', "
-        				+ "'"+Password+"', "
-        				+ "'"+Age+"', "
-        				+ "'"+Wechat+"', "
-        				+ "'"+College+"', "
-        				+ "'"+Therid+"',"
+        				+ "'"+teacher.getUsername()+"', "
+        				+ "'"+teacher.getPassword()+"', "
+        				+ "'"+teacher.getAge()+"', "
+        				+ "'"+teacher.getWechat()+"', "
+        				+ "'"+teacher.getCollege()+"', "
+        				+ "'"+teacher.getTherid()+"',"
         				+ "'-1'"        				
         				+")";
     	try {
@@ -107,13 +113,14 @@ public class RegisterDAO {
     public static boolean chanegType(String Type,String Therid) {
 
     	Connection connection = null;
-        	
+    	boolean resultSet=false;
     	connection = DBUnit.getConn();
     	String change_sql =  "update db_register  set Type='"+Type+"' where  Therid='"+Therid+"'";
     	try {
     		
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(change_sql);		
+			resultSet = statement.execute(change_sql);	
+			
 			closeConnection(connection);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -122,15 +129,50 @@ public class RegisterDAO {
 					connection.close();
 				} catch (SQLException e1) {
 					e1.printStackTrace();
-					return false;
 				}
 			}
 		}
     	
-    	return true;
+    	return resultSet;
 	}
     
     
+    //得到对应学院的用户列表
+public static List<TeacherBean> getUserList(String  Type) {
+    	
+    	List<TeacherBean>  list = new ArrayList<TeacherBean>();
+    	Connection connection = null;
+    	
+    	connection = DBUnit.getConn();
+    	
+    	String sql = "select * from db_register where Type='"+Type+"'";
+    	
+    	try {
+    		Statement statement = connection.createStatement();
+    		ResultSet resultSet = statement.executeQuery(sql);
+    		while(resultSet.next()){
+    			String Username = resultSet.getString("Username");
+    		    String Password = resultSet.getString("Password");
+    		    String Therid = resultSet.getString("Therid");
+    			String Age = resultSet.getString("Age");
+    			String Wechat = resultSet.getString("Wechat");
+    			String College = resultSet.getString("College");
+    			list.add(new TeacherBean(Username,Password,Therid,Age,Wechat,College));
+    		}
+    		closeConnection(connection);
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    		if(connection!=null){
+    			try {
+    				connection.close();
+    			} catch (SQLException e1) {
+    				e1.printStackTrace();
+    			}
+    		}
+    	}
+		return list;
+    }
+	    
     public static void closeConnection(Connection connection) throws SQLException {
     	System.out.println("数据库连接关闭");
 		connection.close();

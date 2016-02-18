@@ -1,5 +1,6 @@
 package com.action.kaowu.sau.www;
 
+import com.bean.kaowu.sau.www.TeacherBean;
 import com.dao.kaowu.sau.www.RegisterDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -64,7 +65,8 @@ public class Register extends ActionSupport {
 	
 	public String execute() {
 		//添加
-		String type = RegisterDAO.add(Username, Password, Therid, Age, Wechat, College);
+		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College);
+		String type = RegisterDAO.add(teacher);
 		 //自己手动构造json类型数据
 		JSONObject json = new JSONObject();
 	    json.put("type", type);

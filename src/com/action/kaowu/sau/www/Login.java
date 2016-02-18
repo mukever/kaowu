@@ -4,7 +4,7 @@ package com.action.kaowu.sau.www;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
-import com.bean.kaowu.sau.www.UserBean;
+import com.bean.kaowu.sau.www.AdminBean;
 import com.dao.kaowu.sau.www.LoginDAO;
 import com.dao.kaowu.sau.www.RegisterDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -65,7 +65,7 @@ public class Login  extends ActionSupport  {
 		String type = "0";
 		
 		//获取用户名密码
-		UserBean user = new UserBean(Username,Password);
+		AdminBean user = new AdminBean(Username,Password);
 		System.out.println(Username+"\n"+Password+"\n"+"Sessionid:"+Sessionid);
 		//判断当前用户是否有cookie
 		//request.getCookies();

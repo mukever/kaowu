@@ -2,19 +2,33 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"  "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="struts" namespace="/" extends="struts-default,json-default">
-
+		<!-- 用户登录 -->
 		<action name="Login" class="com.action.kaowu.sau.www.Login">
 			<result name = "success"  type="json">
 				<param name="root">result</param>
 			</result>
 			<result name="input">/login.html</result>
 		</action>
+		<!-- 教书监考用户注册 -->
 		<action name="Register" class="com.action.kaowu.sau.www.Register">
 			 <result name = "success"  type="json">
 				<param name="root">result</param>
 			 </result>
 		</action>
-
+		<!-- 返回对应学院的所有用户信息 -->
+		<action name="AuditUser" class="com.action.kaowu.sau.www.AuditUser">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		<!-- 审核结果 -->
+		<action name="Audit" class="com.action.kaowu.sau.www.Audit">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		<!-- 年级 -->
 		<action name="Greate_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
 			<result name="add">/Gradeinfo.jsp</result>
 			<result name="delete">/Gradeinfo.jsp</result>
@@ -22,14 +36,14 @@
 			<result name="updata">/Gradeinfoupdate.jsp</result>
 			<result name="success">/index.html</result>
 		</action>
-
+		<!-- 教室 -->
 		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
 			<result name="updata">/Classinfoupdate.jsp</result>
 			<result name="delete">/Classinfo.jsp</result>
 			<result name="classinfo">/Classinfo.jsp</result>
 			<result name="success">/index.html</result>
 		</action>
-
+		<!-- 用户登录信息记录 -->
 		<action name="Sign_*" class="com.action.kaowu.sau.www.Sign" method="{1}">
 			<result name="success">/idnex.html</result>
 			<result type="json">

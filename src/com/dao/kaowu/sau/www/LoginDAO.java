@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.bean.kaowu.sau.www.UserBean;
+import com.bean.kaowu.sau.www.AdminBean;
 import com.db.kaowu.sau.www.DBUnit;
 
 public class LoginDAO {
@@ -12,7 +12,7 @@ public class LoginDAO {
     /*
      * 判断用户是否合法
      */
-    public static String userLegitimate(UserBean user) {
+    public static String userLegitimate(AdminBean user) {
     	
         Connection connection = null;
     	
@@ -60,7 +60,7 @@ public class LoginDAO {
     	System.out.println("数据库连接关闭");
 		connection.close();
 	}
-	public static String getCollege(UserBean user) {
+	public static String getCollege(AdminBean user) {
 Connection connection = null;
     	
     	connection = DBUnit.getConn();
