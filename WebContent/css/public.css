@@ -1,0 +1,77 @@
+/*网站公用css样式表*/
+
+
+/**表格按钮样式
+table-btn-success: 绿色样式
+table-btn-danger: 危险样式
+table-btn-disabled: 不可用按钮样式
+**/
+.table-btn-success{
+    font-size: 14px;
+    color: #fff;
+    width: 80px;
+    height: 26px;
+    background-color: #2ecc71;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.table-btn-success:hover{
+    background-color: #55d98d;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.table-btn-success:active{
+    background-color: #27ad60;
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s;
+    -ms-transition: all 0s;
+    -o-transition: all 0s;
+    transition: all 0s;
+}
+.table-btn-danger{
+    font-size: 14px;
+    color: #fff;
+    width: 80px;
+    height: 26px;
+    background-color: #e74c3c;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.table-btn-danger:hover{
+    background-color: #ec7063;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.table-btn-danger:active{
+    background-color: #dc2d1b;
+    -webkit-transition: all 0s;
+    -moz-transition: all 0s;
+    -ms-transition: all 0s;
+    -o-transition: all 0s;
+    transition: all 0s;
+}
+.table-btn-disabled{
+    background-color: darkgray;
+    cursor: default;
+}
+.table-btn-disabled:hover{
+    background-color: darkgray;
+}
