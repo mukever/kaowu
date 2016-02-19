@@ -5,9 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import com.bean.kaowu.sau.www.AdminBean;
+import com.bean.kaowu.sau.www.TeacherBean;
 import com.db.kaowu.sau.www.DBUnit;
 
-public class LoginDAO {
+public class AdminDAO {
 	
     /*
      * 判断用户是否合法
@@ -61,7 +62,8 @@ public class LoginDAO {
 		connection.close();
 	}
 	public static String getCollege(AdminBean user) {
-Connection connection = null;
+		
+		Connection connection = null;
     	
     	connection = DBUnit.getConn();
     	String College = "";
@@ -88,5 +90,38 @@ Connection connection = null;
     	
 		return College;
 	}
+	
+	public static TeacherBean getUserInfo(String username) {
+			
+			Connection connection = null;
+	    	TeacherBean teacher = new TeacherBean();
+	    	connection = DBUnit.getConn();
+	    	try {
+				Statement statement = connection.createStatement();
+				String sql = "select * from db_admin  where username='"+username+"'";
+				//从数据中得到相应的user的信息
+				ResultSet resultSet = statement.executeQuery(sql);
+				//调用相应的方法经行比较
+				if(resultSet.next()){
+					String College = resultSet.getString("College");
+					teacher.setCollege(College);
+					teacher.setUsername(username);
+				}
+				closeConnection(connection);
+			} catch (SQLException e) {
+				e.printStackTrace();
+				if(connection!=null){
+					try {
+						connection.close();
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+				}
+			}
+	    	
+			return teacher;
+		}
+	
+	
 
 }

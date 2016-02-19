@@ -1,6 +1,6 @@
 package com.bean.kaowu.sau.www;
 
-public class TeacherBean {
+public class TeacherBean extends AdminBean{
 	private String Username;
 	private String Password;
 	private String Therid;
@@ -72,7 +72,9 @@ public class TeacherBean {
 		College = college;
 		Type = type;
 	}
-	
-    
+	//保留无参构造器
+    public TeacherBean(){
+    	
+    }
    
 }

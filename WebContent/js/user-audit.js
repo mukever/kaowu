@@ -3,13 +3,35 @@
  */
 
 
-var serverstatus = true;
+var serverpoststatus = true;
+var servergetstatus = true;
 /*点击 通过 || 驳回 按钮，得到职工号*/
 function GetId($i){
     return $i.parent().prevAll().eq(1).text();
 }
 
-/*ajax发送数据并返回结果*/
+/*ajax获取学院所有用户信息*/
+function GetUsersInfo(college){
+    $.ajax({
+        type: "POST",
+        url: "AuditUser.action",
+        async: "false",
+        data: {"College":"1"},
+        dataType: "json",
+        success: function(data){
+        	alert(data);
+            var user = JSON
+            alert(user.userlist[0].name);
+        
+        },
+        error: function(jqXHR,textStatus,errorThrown){
+            servergetstatus = false;
+            alert("服务器请求出错： " + textStatus);
+        }
+    })
+}
+
+/*ajax发送处理请求并返回结果*/
 function SendData(id,type){
     var serverRetType = 0;
     $.ajax({
@@ -23,11 +45,11 @@ function SendData(id,type){
             return serverRetType;
         },
         error: function(jqXHR,textStatus,errorThrown){
-            serverstatus = false;
+            serverpoststatus = false;
             alert("服务器请求出错: " + textStatus);
         }
     });
-    if(serverstatus == false){
+    if(serverpoststatus == false){
         return 0;
     }
     else{
@@ -127,8 +149,6 @@ function UpDatePagStatus(){
 
 /*文档加载完成后执行的操作*/
 $(document).ready(function(){
-    //更新pagination状态
-    if($(".pagination li").eq(1)){
-
-    }
+    //从服务器获取用户json数组
+    GetUsersInfo("1");
 });

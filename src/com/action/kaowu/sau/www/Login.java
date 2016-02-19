@@ -1,11 +1,10 @@
 package com.action.kaowu.sau.www;
 
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 import com.bean.kaowu.sau.www.AdminBean;
-import com.dao.kaowu.sau.www.LoginDAO;
+import com.dao.kaowu.sau.www.AdminDAO;
 import com.dao.kaowu.sau.www.RegisterDAO;
 import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONObject;
@@ -71,7 +70,7 @@ public class Login  extends ActionSupport  {
 		//request.getCookies();
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		//检测数据库库中的用户信息
-		String status = LoginDAO.userLegitimate(user);
+		String status = AdminDAO.userLegitimate(user);
 		String college="";
 		//当用户为管理员
 		if(status.equals("1")){
@@ -79,7 +78,7 @@ public class Login  extends ActionSupport  {
 			Sign.signUpdate(Username);
 			type = "1";
 			//得到用户所属学院
-		    college = LoginDAO.getCollege(user);
+		    college = AdminDAO.getCollege(user);
 			//Test
 //			HttpServletRequest request = ServletActionContext.getRequest();
 //			System.out.println(request.getLocalAddr());

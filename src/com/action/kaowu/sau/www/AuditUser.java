@@ -13,13 +13,15 @@ public class AuditUser extends ActionSupport{
 
 	
 	private static final long serialVersionUID = 1L;
-	private String Type;
+	private String College;
+	
 	private String result;
-	public String getType() {
-		return Type;
+		
+	public String getCollege() {
+		return College;
 	}
-	public void setType(String type) {
-		Type = type;
+	public void setCollege(String college) {
+		College = college;
 	}
 	
 	public String getResult() {
@@ -29,13 +31,14 @@ public class AuditUser extends ActionSupport{
 	public void setResult(String result) {
 		this.result = result;
 	}
-	public String execute() {
+	public  String execute() {
 		
-		List<TeacherBean> list = RegisterDAO.getUserList(Type);
+		List<TeacherBean> list = RegisterDAO.getUserList(College);
 		JSONArray jsonArray = JSONArray.fromObject(list); 
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("userlist", jsonArray);
 		result = jsonObject.toString();
+		System.out.println(result);
 		return SUCCESS;
 	}
 
