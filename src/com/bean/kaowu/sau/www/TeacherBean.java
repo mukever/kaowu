@@ -63,6 +63,16 @@ public class TeacherBean {
 		Type = type;
 	}
 	
+	public TeacherBean(String username, String therid, String age, String wechat, String college,String type) {
+		super();
+		Username = username;
+		Therid = therid;
+		Age = age;
+		Wechat = wechat;
+		College = college;
+		Type = type;
+	}
+	
     
    
 }

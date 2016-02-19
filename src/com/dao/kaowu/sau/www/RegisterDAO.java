@@ -154,13 +154,12 @@ public static List<TeacherBean> getUserList(String  College_) {
     		ResultSet resultSet = statement.executeQuery(sql); 
     		while(resultSet.next()){
     			String Username = resultSet.getString("Username");
-    		    String Password = resultSet.getString("Password");
     		    String Therid = resultSet.getString("Therid");
     			String Age = resultSet.getString("Age");
     			String Wechat = resultSet.getString("Wechat");
     			String College = resultSet.getString("College");
     			String Type = resultSet.getString("Type");
-    			list.add(new TeacherBean(Username,Password,Therid,Age,Wechat,College,Type));
+    			list.add(new TeacherBean(Username,Therid,Age,Wechat,College,Type));
     		}
     		closeConnection(connection);
     	} catch (SQLException e) {
