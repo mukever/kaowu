@@ -108,6 +108,7 @@ public class Login  extends ActionSupport  {
 	    json.put("sessionid", sessionid);
 	    json.put("type", type);
 	    json.put("college", college);
+	    json.put("username", getUsername());
         System.out.println(json.toString());
         
         setResult(json.toString());//给result赋值，传递给页面

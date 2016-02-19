@@ -7,7 +7,7 @@ public class TeacherBean {
 	private String Age;
 	private String Wechat;
 	private String College;
-
+	private String Type;
 	
 	public String getUsername() {
 		return Username;
@@ -45,11 +45,14 @@ public class TeacherBean {
 	public void setCollege(String college) {
 		College = college;
 	}
-	
-    public TeacherBean() {
-    
-    }
-	public TeacherBean(String username, String password, String therid, String age, String wechat, String college) {
+	public String getType() {
+		return Type;
+	}
+	public void setType(String type) {
+		Type = type;
+	}
+
+	public TeacherBean(String username, String password, String therid, String age, String wechat, String college,String type) {
 		super();
 		Username = username;
 		Password = password;
@@ -57,7 +60,9 @@ public class TeacherBean {
 		Age = age;
 		Wechat = wechat;
 		College = college;
+		Type = type;
 	}
+	
     
    
 }

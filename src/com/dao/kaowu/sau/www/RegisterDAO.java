@@ -12,6 +12,8 @@ import com.bean.kaowu.sau.www.GrateBean;
 import com.bean.kaowu.sau.www.TeacherBean;
 import com.db.kaowu.sau.www.DBUnit;
 
+import net.sf.json.JSONObject;
+
 public class RegisterDAO {
 	
 	 /*
@@ -78,8 +80,8 @@ public class RegisterDAO {
         				+ "'"+teacher.getAge()+"', "
         				+ "'"+teacher.getWechat()+"', "
         				+ "'"+teacher.getCollege()+"', "
-        				+ "'"+teacher.getTherid()+"',"
-        				+ "'-1'"        				
+        				+ "'"+teacher.getTherid()+"', "
+        				+ "'"+teacher.getType()+"'"        				
         				+")";
     	try {
     		
@@ -138,18 +140,18 @@ public class RegisterDAO {
     
     
     //得到对应学院的用户列表
-public static List<TeacherBean> getUserList(String  Type) {
+public static List<TeacherBean> getUserList(String  College_) {
     	
     	List<TeacherBean>  list = new ArrayList<TeacherBean>();
     	Connection connection = null;
     	
     	connection = DBUnit.getConn();
     	
-    	String sql = "select * from db_register where Type='"+Type+"'";
-    	
+    	String sql = "select * from db_register where College='"+College_+"'";
+    	System.out.println(sql);
     	try {
     		Statement statement = connection.createStatement();
-    		ResultSet resultSet = statement.executeQuery(sql);
+    		ResultSet resultSet = statement.executeQuery(sql); 
     		while(resultSet.next()){
     			String Username = resultSet.getString("Username");
     		    String Password = resultSet.getString("Password");
@@ -157,7 +159,8 @@ public static List<TeacherBean> getUserList(String  Type) {
     			String Age = resultSet.getString("Age");
     			String Wechat = resultSet.getString("Wechat");
     			String College = resultSet.getString("College");
-    			list.add(new TeacherBean(Username,Password,Therid,Age,Wechat,College));
+    			String Type = resultSet.getString("Type");
+    			list.add(new TeacherBean(Username,Password,Therid,Age,Wechat,College,Type));
     		}
     		closeConnection(connection);
     	} catch (SQLException e) {
@@ -177,4 +180,5 @@ public static List<TeacherBean> getUserList(String  Type) {
     	System.out.println("数据库连接关闭");
 		connection.close();
 	}
+    
 }

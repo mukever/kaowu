@@ -65,7 +65,7 @@ public class Register extends ActionSupport {
 	
 	public String execute() {
 		//添加
-		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College);
+		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College,"-1");
 		String type = RegisterDAO.add(teacher);
 		 //自己手动构造json类型数据
 		JSONObject json = new JSONObject();
