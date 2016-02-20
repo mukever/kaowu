@@ -3,12 +3,12 @@ package com.bean.kaowu.sau.www;
 public class TeacherBean extends AdminBean{
 	private String Username;
 	private String Password;
-	private String Therid;
+	private String Therid; //教职工编号  登陆所用
 	private String Age;
 	private String Wechat;
 	private String College;
 	private String Type;
-	
+	private String Position; //职位
 	public String getUsername() {
 		return Username;
 	}
@@ -52,7 +52,14 @@ public class TeacherBean extends AdminBean{
 		Type = type;
 	}
 
-	public TeacherBean(String username, String password, String therid, String age, String wechat, String college,String type) {
+	public String getPosition() {
+		return Position;
+	}
+	public void setPosition(String position) {
+		Position = position;
+	}
+
+	public TeacherBean(String username, String password, String therid, String age, String wechat, String college,String type,String position) {
 		super();
 		Username = username;
 		Password = password;
@@ -61,6 +68,7 @@ public class TeacherBean extends AdminBean{
 		Wechat = wechat;
 		College = college;
 		Type = type;
+		Position = position;
 	}
 	
 	public TeacherBean(String username, String therid, String age, String wechat, String college,String type) {
@@ -72,9 +80,11 @@ public class TeacherBean extends AdminBean{
 		College = college;
 		Type = type;
 	}
+	
+	
 	//保留无参构造器
     public TeacherBean(){
     	
     }
-   
+	   
 }

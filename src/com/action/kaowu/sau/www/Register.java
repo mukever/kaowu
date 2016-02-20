@@ -18,7 +18,9 @@ public class Register extends ActionSupport {
 	private String Age;
 	private String Wechat;
 	private String College;
+	private String Position;
 	private String result;
+	
 	public String getUsername() {
 		return Username;
 	}
@@ -30,12 +32,6 @@ public class Register extends ActionSupport {
 	}
 	public void setPassword(String password) {
 		Password = password;
-	}
-	public String getID() {
-		return Therid;
-	}
-	public void setID(String iD) {
-		Therid = iD;
 	}
 	public String getAge() {
 		return Age;
@@ -55,6 +51,19 @@ public class Register extends ActionSupport {
 	public void setCollege(String college) {
 		College = college;
 	}
+	
+	public String getTherid() {
+		return Therid;
+	}
+	public void setTherid(String therid) {
+		Therid = therid;
+	}
+	public String getPosition() {
+		return Position;
+	}
+	public void setPosition(String position) {
+		Position = position;
+	}
 	public String getResult() {
 		return result;
 	}
@@ -65,7 +74,7 @@ public class Register extends ActionSupport {
 	
 	public String execute() {
 		//添加
-		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College,"-1");
+		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College,"-1",Position);
 		String type = RegisterDAO.add(teacher);
 		 //自己手动构造json类型数据
 		JSONObject json = new JSONObject();

@@ -70,14 +70,15 @@ public class RegisterDAO {
         	connection = DBUnit.getConn();
         	String query_therid_sql =  "select * from db_register  where  Therid='"+teacher.getTherid()+"'";
         	String sql = "insert into db_register(Username,Password,Age,Wechat,College,"
-        				+ "Therid,Type) values("
+        				+ "Therid,Type,Position) values("
         				+ "'"+teacher.getUsername()+"', "
         				+ "'"+teacher.getPassword()+"', "
         				+ "'"+teacher.getAge()+"', "
         				+ "'"+teacher.getWechat()+"', "
         				+ "'"+teacher.getCollege()+"', "
         				+ "'"+teacher.getTherid()+"', "
-        				+ "'"+teacher.getType()+"'"        				
+        				+ "'"+teacher.getType()+"' ,"
+        				+ "'"+teacher.getPosition()+"' "
         				+")";
     	try {
     		

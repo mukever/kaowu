@@ -47,6 +47,9 @@ public class UserInfo extends ActionSupport{
 			people = AdminDAO.getUserInfo(ID);
 			AdminBean admin = (AdminBean)people;
 			jsonObject.put("userinfo",admin);
+			int count = AdminDAO.getCount(ID);
+			//返回需要处理审核的用户信息个数
+			jsonObject.put("count", count);
 		}
 		//如果用户为普通用户
 		else if("2".equals(Type)){

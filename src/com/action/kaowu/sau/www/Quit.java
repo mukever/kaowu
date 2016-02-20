@@ -15,7 +15,8 @@ public class Quit extends ActionSupport {
 		//清除session
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.removeAttribute("id");
-		
+		session.removeAttribute("College");
+		session.removeAttribute("Username");
 		return SUCCESS;
 		
 	}

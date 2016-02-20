@@ -27,6 +27,12 @@
 				<param name="root">result</param>
 			 </result>
 		</action>
+		<!-- 返回用户相关信息 -->
+		<action name="UserInfo" class="com.action.kaowu.sau.www.UserInfo">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
 		
 		<!-- 年级 -->
 		<action name="Greate_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
