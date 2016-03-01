@@ -1,0 +1,47 @@
+/*UserAudit页面样式表*/
+
+/*表格样式*/
+.user-info{
+    position: relative;
+    top: 20px;
+    left: 10px;
+    padding: 2px 2px 2px 2px;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+thead tr th:last-child{
+    min-width: 300px!important;
+}
+.btn-change-table{
+    width: 50%!important;
+    height: 42px!important;
+    border-radius: 0!important;
+    font-weight: bold;
+    float: left;
+}
+.status{
+    position: relative;
+    top: 10px;
+    left: 0;
+    display: block;
+    width: 50%;
+    height: 2px;
+    opacity: 1;
+    background-color: #f1c40f;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.status-agree{
+    left: 50%;
+    opacity: 1;
+    animation: update-status-agree 0.5s ease-in-out;
+}
+@keyframes update-status-agree {
+    from{left: 0;
+        opacity: 1;}
+    to{left: 50%;
+        opacity: 1;}
+}

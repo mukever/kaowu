@@ -1,10 +1,13 @@
 package com.action.kaowu.sau.www;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Request;
 import org.apache.struts2.ServletActionContext;
 import com.bean.kaowu.sau.www.AdminBean;
 import com.dao.kaowu.sau.www.AdminDAO;
@@ -61,6 +64,12 @@ public class Login  extends ActionSupport  {
 
 	//处理用户请求的execute方法
 	public String execute() {
+	    try {
+			ServletActionContext.getRequest().setCharacterEncoding("utf8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		initHaspMap();
 		//-1 0 1 2
 		//审核 错误 管理员 普通
@@ -76,31 +85,26 @@ public class Login  extends ActionSupport  {
 		String status = AdminDAO.userLegitimate(user);
 		String college_num="";
 		//当用户为管理员
-		if(status.equals("1")){
+		if("1".equals(status)){
 			//更新用户访问记录
 			Sign.signUpdate(Username);
 			type = "1";
 			//得到用户所属学院
 			
 		    college_num = AdminDAO.getCollege(user);
-		    System.out.println(college_num);
 		    String college_string = college_map.get(college_num);
-		    System.out.println(college_string);
 		    session.setAttribute("College",college_string);
-			//Test
-//			HttpServletRequest request = ServletActionContext.getRequest();
-//			System.out.println(request.getLocalAddr());
-//			System.out.println(request.getMethod());
-//			System.out.println(request.getRemoteHost());
 	       
 		}
 		//判断用户是否为 普通用户
-		else if(status.equals("0")){
+		else if("0".equals(status)){
 			
 			status = RegisterDAO.Legitimate(Username, Password);
-			college_num = RegisterDAO.getUserInfo(Username).getCollege();
-			String college_string = college_map.get(college_num);
-			session.setAttribute("College", college_string);
+			if("-1".equals(status) || "2".equals(status)){
+				college_num = RegisterDAO.getUserInfo(Username).getCollege();
+				String college_string = college_map.get(college_num);
+				session.setAttribute("College", college_string);
+			}						
 			type = status;
 			
 		}
@@ -113,7 +117,7 @@ public class Login  extends ActionSupport  {
 		//维持回话 保持用户名
 		session.setAttribute("Username", Username);
 		String sessionid = session.getId();
-		 //自己手动构造json类型数据
+		//自己手动构造json类型数据
 		JSONObject json = new JSONObject();
 	    json.put("sessionid", sessionid);
 	    json.put("type", type);

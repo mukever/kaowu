@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=Edge">
+    <title>沈阳航空航天大学考务系统</title>
+    <link href="bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/navbarmould.css" rel="stylesheet">
+    <link href="css/public.css" rel="stylesheet">
+</head>
+<body>
+<!--顶部导航栏开始-->
+<div class="header">
+    <ul class="header-right">
+        <li>
+            <a href="login.html"><i class="fa fa-fw fa-power-off"></i> 退出</a>
+        </li>
+        <li>
+            <span><i class="fa fa-user"></i> User</span>
+        </li>
+        <li>
+            <span><i class="fa fa-flag"></i> 计算机学院</span>
+        </li>
+    </ul>
+</div>
+<!--顶部导航栏结束-->
+
+<!--左导航栏开始-->
+<ul class="navbar-left">
+    <li class="class">
+        <span><i class="fa fa-fw fa-user"></i> 班 级<i id="btn-class" class="fa fa-fw fa-caret-down"></i></span>
+    </li>
+    <ul class="class-flip" style="display: none;">
+        <li>
+            <a><i class="fa fa-fw fa-ellipsis-h"></i> 列表</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-user-plus"></i> 添加</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-user-times"></i> 删除</a>
+        </li>
+    </ul>
+    <li class="test">
+        <span><i class="fa fa-fw fa-pencil-square-o"></i> 考 试<i id="btn-test" class="fa fa-fw fa-caret-down"></i></span>
+    </li>
+    <ul class="test-flip" style="display: none;">
+        <li>
+            <a><i class="fa fa-fw fa-list-alt"></i> 列表</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-calendar-plus-o"></i> 创建</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-calendar-times-o"></i> 删除</a>
+        </li>
+    </ul>
+    <li class="room">
+        <span><i class="fa fa-fw fa-tasks"></i> 教 室<i id="btn-room" class="fa fa-fw fa-caret-down"></i></span>
+    </li>
+    <ul class="room-flip" style="display: none;">
+        <li>
+            <a><i class="fa fa-fw fa-list"></i> 列表</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-plus-square"></i> 添加</a>
+        </li>
+        <li>
+            <a><i class="fa fa-fw fa-exclamation-triangle"></i> 删除</a>
+        </li>
+    </ul>
+    <li class="audit">
+        <i class="fa fa-fw fa-check-square"></i> 用户审核
+        <span style="display: inline-block">0</span>
+    </li>
+    <li><i class="fa fa-fw fa-repeat"></i> 最近访问</li>
+</ul>
+<!--左导航栏结束-->
+
+<!--内容区开始-->
+<div class="page-wrapper">
+    <style>
+        .input{
+            position: relative;
+            top: 20px;
+            left: auto;
+            width: 50%;
+        }
+        .input-group{
+            margin-top: 20px;
+        }
+        .btn-post{
+            margin-top: 60px;
+            width: 100%;
+            height: 34px;
+            font-weight: bolder;
+        }
+        .input-group span{
+            font-weight: bold;
+        }
+        .dropdown-menu li{
+            margin: 0!important;
+        }
+        .dropdown-menu li:first-child a{
+            border-radius: 6px 6px 0 0;
+        }
+        .dropdown-menu li:last-child a{
+            border-radius: 0 0 6px 6px;
+        }
+        .option{
+            width: 60px;
+        }
+        .dropdown-menu{
+            padding: 0!important;
+            border-radius: 6px;
+        }
+        .btn{
+            outline: none!important;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        pre{
+            font-size: large;
+            font-weight: bolder;
+        }
+    </style>
+    <div class="show-position">
+        <span><i class="fa fa-fw fa-home"></i> Home</span>
+        <span><i class="fa fa-fw fa-angle-right"></i> 教室</span>
+        <span><i class="fa fa-fw fa-angle-right"></i> 添加教室</span>
+    </div>
+    <div class="content">
+        <hr style="width: 100%;border: 0;border-top: 2px solid #eee;border-bottom: 2px solid #fff;border-top-color: #dadada">
+        <div class="input">
+            <div class="input-group">
+                <span class="input-group-addon">教室编号</span>
+                <input type="text" class="form-control" value="" placeholder="例如 C101" id="class-id">
+                <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">容量</span>
+                <input type="text" class="form-control" value="" placeholder="例如 100" id="class-num">
+                <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">所属教学楼</span>
+                <!-- Split button -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default option" id="hide-one">&nbsp;</button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="hide-two">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">A</a></li>
+                        <li><a href="#">B</a></li>
+                        <li><a href="#">C</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">其他</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="input-group hidden detail">
+                <span class="input-group-addon">详细位置</span>
+                <input type="text" class="form-control" value="" placeholder="例如 经管楼" id="class-father">
+                <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+            </div>
+            <button class="table-btn-success btn-post">确定</button>
+        </div>
+        <div class="success hidden">
+            <h2 style="color: forestgreen"><i class="fa fa-check"></i>&nbsp;教室添加成功</h2>
+            <pre><kbd>教室编号</kbd>&nbsp;&nbsp;<code></code></pre>
+            <pre><kbd>容量</kbd>&nbsp;&nbsp;<code></code></pre>
+            <pre><kbd>所属教学楼</kbd>&nbsp;&nbsp;<code></code></pre>
+        </div>
+    </div>
+</div>
+<!--内容区结束-->
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/navbarmould.js"></script>
+<script src="js/class-room-add.js"></script>
+</html>

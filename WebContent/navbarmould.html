@@ -8,7 +8,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/navbarmould.css" rel="stylesheet">
     <link href="css/public.css" rel="stylesheet">
-    <link href="css/user-audit.css" rel="stylesheet">
+    <link href="css/create-test.css" rel="stylesheet">
 </head>
 <body>
     <!--顶部导航栏开始-->
@@ -81,17 +81,127 @@
 
     <!--内容区开始-->
     <div class="page-wrapper">
-        <!--<div class="show-position">-->
-            <!--<span><i class="fa fa-fw fa-home"></i> Home</span>-->
-            <!--<span><i class="fa fa-fw fa-angle-right"></i> 用户审核</span>-->
-        <!--</div>-->
+        <div class="show-position">
+            <span><i class="fa fa-fw fa-home"></i> Home</span>
+            <span><i class="fa fa-fw fa-angle-right"></i> 考试</span>
+            <span><i class="fa fa-fw fa-angle-right"></i> 创建考试</span>
+        </div>
         <div class="content">
             <hr style="width: 100%;border: 0;border-top: 2px solid #eee;border-bottom: 2px solid #fff;border-top-color: #dadada">
+            <div class="progress-container">
+                <h1 class="alert-info">第一步.&nbsp;<small>填写考试名称，选择时间</small></h1>
+                <h1 class="alert-info hidden">第二步.&nbsp;<small>选择教室，班级</small></h1>
+                <h1 class="alert-info hidden">第三步.&nbsp;<small>调整监考教师</small></h1>
+            </div>
+            <form>
+                <fieldset id="one">
+                    <div class="calendar-container">
+                        <div class="calendar-year-month">
+                            <a class="year-month" title="今天">
+                                <h2>2016/</h2>
+                                <h2>2</h2>
+                            </a>
+                            <div class="calendar-arrow">
+                                <span class="prev" title="上一月" id="prev-month"><i class="fa fa-fw fa-angle-left"></i></span>
+                                <span class="next" title="下一月" id="next-month"><i class="fa fa-fw fa-angle-right"></i></span>
+                            </div>
+                        </div>
+                        <div class="calendar-week">
+                            <ul>
+                                <li>日</li>
+                                <li>一</li>
+                                <li>二</li>
+                                <li>三</li>
+                                <li>四</li>
+                                <li>五</li>
+                                <li>六</li>
+                            </ul>
+                        </div>
+                        <div class="calendar-day">
+                            <ul>
+                                <li>31</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>10</li>
+                                <li>11</li>
+                                <li>12</li>
+                                <li>13</li>
+                                <li>14</li>
+                                <li>15</li>
+                                <li>16</li>
+                                <li>17</li>
+                                <li>18</li>
+                                <li>19</li>
+                                <li>20</li>
+                                <li>21</li>
+                                <li>22</li>
+                                <li>23</li>
+                                <li>24</li>
+                                <li>25</li>
+                                <li>26</li>
+                                <li>27</li>
+                                <li>28</li>
+                                <li>29</li>
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                                <li>8</li>
+                                <li>9</li>
+                                <li>10</li>
+                                <li>11</li>
+                                <li>12</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="input-group date-chosen">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-clock-o"></i></span>
+                        <input type="text" class="form-control" placeholder="请选择日期 例如2017-1-1" value="" id="date-chosen">
+                        <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-start"></i></span>
+                        <input type="text" class="form-control" placeholder="填写考试开始时间 例如9:10" value="" id="begin-time">
+                        <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-hourglass-end"></i></span>
+                        <input type="text" class="form-control" placeholder="填写考试结束时间 例如9:10" value="" id="end-time">
+                        <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-fw fa-eraser"></i></span>
+                        <input type="text" class="form-control" placeholder="填写考试名称" value="" id="test-name">
+                        <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
+                    </div>
+                    <input type="button" class="table-btn-success btn-form-one" id="btn-form-one" value="下一步">
+                </fieldset>
+                <fieldset class="hidden" id="two">
+                    <div class="room-chosen"></div>
+                    <div class="class-chosen"></div>
+                    <input type="button" class="table-btn-success btn-form-two" id="btn-form-two" value="下一步">
+                </fieldset>
+                <fieldset class="hidden" id="three">
+                    <div class="teacher-chosen"></div>
+                    <input type="button" class="table-btn-success btn-form-three" id="btn-form-three" value="下一步">
+                </fieldset>
+                <fieldset id="four"></fieldset>
+            </form>
         </div>
     </div>
     <!--内容区结束-->
 </body>
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/navbarmould.js"></script>
-<script src="js/user-audit.js"></script>
+<script src="js/create-test.js"></script>
 </html>

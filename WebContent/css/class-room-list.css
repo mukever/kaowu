@@ -1,0 +1,105 @@
+/*Classroomlist页面样式表*/
+thead tr th:last-child{
+    min-width: 300px!important;
+}
+.class-room-info{
+    position: relative;
+    top: 20px;
+    left: 10px;
+    padding: 2px 2px 2px 2px;
+    margin-left: 10px;
+    margin-right: 50px;
+}
+.class-room-navbar li{
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    text-align: center;
+    border-right: 1px solid rgb(221,221,221);
+}
+.class-room-navbar li:hover{
+    background-color: #bbb;
+    color: #fff;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.where-active{
+    background-color: #bbb;
+    color: #fff;
+}
+/*-----------确认对话框样式-------------*/
+.ask{
+    width: 350px!important;
+}
+.ask-btn-two{
+    left: 145px;!important;
+}
+.info-change{
+    position: absolute;
+    left: 40%;
+    top: -200px;
+    width: 300px;
+    height: 250px;
+    background-color: #FFF;
+    z-index: 51;
+    border-radius: 6px;
+    box-shadow: 0 0 20px #222;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    opacity: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.info-change-finish{
+    top: 50px;
+    opacity: 1;
+    animation: info-change-show 0.3s ease-in-out;
+}
+@keyframes info-change-show {
+    from{top: -200px;
+        opacity: 0;}
+    to{top: 50px;
+        opacity: 1;}
+}
+.info-change-span{
+    color: #ec7063;
+    position: relative;
+    top: 13px;
+    left: 18px;
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.info-change h3{
+    position: relative;
+    top: auto;
+    left: 15px;
+}
+.input-group{
+    margin-top: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+}
+.info-btn-one{
+    position: relative;
+    float: left;
+    top: 20px;
+    left: 40px;
+}.info-btn-two{
+    position: relative;
+    float: left;
+    top: 20px;
+    left: 100px;
+}

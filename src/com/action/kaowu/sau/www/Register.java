@@ -1,5 +1,9 @@
 package com.action.kaowu.sau.www;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.bean.kaowu.sau.www.TeacherBean;
 import com.dao.kaowu.sau.www.RegisterDAO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -14,7 +18,7 @@ public class Register extends ActionSupport {
 	
 	private String Username;
 	private String Password;
-	private String Therid;
+	private String ID;
 	private String Age;
 	private String Wechat;
 	private String College;
@@ -52,11 +56,11 @@ public class Register extends ActionSupport {
 		College = college;
 	}
 	
-	public String getTherid() {
-		return Therid;
+	public String getID() {
+		return ID;
 	}
-	public void setTherid(String therid) {
-		Therid = therid;
+	public void setID(String id) {
+		ID = id;
 	}
 	public String getPosition() {
 		return Position;
@@ -73,8 +77,14 @@ public class Register extends ActionSupport {
 	
 	
 	public String execute() {
+		try {
+			ServletActionContext.getRequest().setCharacterEncoding("utf8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//添加
-		TeacherBean teacher = new TeacherBean(Username, Password, Therid, Age, Wechat, College,"-1",Position);
+		TeacherBean teacher = new TeacherBean(Username, Password, ID, Age, Wechat, College,"-1",Position);
 		String type = RegisterDAO.add(teacher);
 		 //自己手动构造json类型数据
 		JSONObject json = new JSONObject();

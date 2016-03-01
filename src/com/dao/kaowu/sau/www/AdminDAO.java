@@ -24,7 +24,9 @@ public class AdminDAO {
 			//从数据中得到相应的user和pwd  
 			String name = user.getUsername();
 			String pwd = user.getPassword();
-			ResultSet res = statement.executeQuery("select * from db_admin  where username='"+name+"' and password='"+pwd+"'");
+			String sql = "select * from db_admin  where username='"+name+"' and password='"+pwd+"'";
+			ResultSet res = statement.executeQuery(sql);
+			System.out.println(sql);
 			//调用相应的方法经行比较
 			if(isok(res)){
 				return "1";
@@ -49,10 +51,6 @@ public class AdminDAO {
     private  static boolean isok(ResultSet resultSet) throws SQLException {
     
     	if(resultSet.next() ){
-//    		String username = resultSet.getString("username");
-//        	String pwd = resultSet.getString("password");
-//        	System.out.println(username);
-//        	System.out.println(pwd);
         	return true;
     	}else
     		return false;

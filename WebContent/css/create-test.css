@@ -1,0 +1,191 @@
+/*展示位置div样式*/
+.show-position{
+    height: 40px;
+    background-color: #fff;
+    margin: -10px -10px 0 -10px;
+}
+.show-position span{
+    display: inline-block;
+    padding-left: 10px;
+    line-height: 40px;
+    font-size: small;
+    cursor: default;
+}
+.show-position span:last-child{
+    font-weight: bolder;
+}
+.progress-container h1{
+    position: relative;
+    margin-top: 0;
+    border: 2px solid rgb(221,221,221);
+    border-radius: 3px;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    padding-left: 20px;
+    cursor: default;
+    display: inline-block;
+    overflow: hidden;
+}
+.calendar-container{
+    position: relative;
+    border: 2px solid rgb(221,221,221);
+    border-radius: 3px;
+    width: 400px;
+    display: inline-block;
+    float: left;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.year-month{
+    position: relative;
+    width: 20%;
+    margin-left: 20px;
+    color: #bbb;
+    cursor: pointer;
+    text-decoration: none!important;
+}
+.year-month h2{
+    display: inline-block;
+}
+.year-month h2:last-child{
+    color: #777;
+}
+.year-month:hover{
+    color: #777;
+}
+.calendar-arrow{
+    position: relative;
+    float: right;
+    line-height: 63px;
+    color: #bbb;
+    font-size: 30px;
+    cursor: pointer;
+}
+.calendar-arrow span:hover{
+    color: #777;
+}
+.calendar-week ul{
+    text-align: center;
+}
+.calendar-week ul li{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #777;
+    font-weight: bold;
+}
+.calendar-day{
+    text-align: center;
+}
+.calendar-day ul li{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #777;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.calendar-day ul li:hover{
+    background-color: #ddd;
+}
+.date-active{
+    color: #fff!important;
+    background-color: #1abc9c!important;
+}
+.date-old{
+    color: #bbb!important;
+}
+.input-group{
+    position: relative;
+    margin-top: 20px;
+    left: 15px;
+    width: 400px;
+}
+.date-chosen{
+    position: relative;
+    margin-top: 0;
+    left: 15px;
+    width: 400px;
+}
+.btn-form-one{
+    position: relative;
+    margin-top: 80px;
+    left: 300px;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-form-two{
+    position: relative;
+    margin-top: 80px;
+    left: 90%;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-form-three{
+    position: relative;
+    margin-top: 80px;
+    left: 90%;
+    width: 100px;
+    font-weight: bold;
+}
+.form-hidden{
+    position: relative;
+    opacity: 0;
+    animation: form-hidden 0.5s ease-in-out;
+}
+.title-hidden{
+    width: 7%!important;
+    animation: title-hidden .5s ease-in-out;
+    background-color: #7fd53e;
+    color: #fff
+}
+.title-2-show{
+    width: 92%!important;
+    animation: title-2-show .5s ease-in-out;
+}
+.title-3-show{
+    width: 85%!important;
+    animation: title-3-show .5s ease-in-out
+}
+@keyframes form-hidden {
+    from{left: auto;
+        opacity: 1;}
+    to{opacity: 0;}
+}
+@keyframes title-hidden {
+    from{width: 80%;
+    background-color: #d9edf7}
+    to{width: 7%;
+    background-color: #7fd53e}
+}
+@keyframes title-2-show {
+    from{width: 0;}
+    to{width: 92%;}
+}
+@keyframes title-3-show {
+    from{width: 0;}
+    to{width: 85%;}
+}
+.room-chosen{
+    width: 49%;
+    height: 200px;
+    border: 2px solid rgb(221,221,221);
+    border-radius: 3px;
+    float: left;
+}.class-chosen{
+    width: 49%;
+    height: 200px;
+    border: 2px solid rgb(221,221,221);
+    border-radius: 3px;
+    /*margin-top: 10px;*/
+    margin-left: 1%;
+     float: left;
+}

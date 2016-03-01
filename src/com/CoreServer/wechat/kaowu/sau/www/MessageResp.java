@@ -96,6 +96,7 @@ public class MessageResp {
 				} else if (eventKey.equals("12")) {
 					respContent = "监考次数菜单项被点击！";
 					xml = CoreMassageResp.getTextMessageXml(requestMap, respContent);
+//					xml = CoreMassageResp.getNewsMessageXml(requestMap, articleList);
 				} else if (eventKey.equals("13")) {
 					respContent = "监考须知菜单项被点击！";
 					xml = CoreMassageResp.getTextMessageXml(requestMap, respContent);

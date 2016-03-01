@@ -31,6 +31,11 @@
                 <h1>填 写 基 本 信 息</h1>
                 <hr>
                 <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-fw fa-credit-card"></i></span>
+                    <input type="text" class=" form-control" name="ID" value="" placeholder="教 职 工 编 号" id="login-id"/>
+                </div>
+                <br>
+                <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
                     <input type="text" class=" form-control" name="username" value="" placeholder="姓 名" id="login-name"/>
                 </div>
@@ -41,8 +46,9 @@
                 </div>
                 <br>
                 <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-fw fa-credit-card"></i></span>
-                    <input type="text" class=" form-control" name="ID" value="" placeholder="教 职 工 编 号" id="login-id"/>
+                    <span class="input-group-addon"><i class="fa fa-fw fa-key"></i></span>
+                    <input type="password" class=" form-control" name="password2" value="" placeholder="确 认 密 码" id="login-pass2"/>
+                    <!--<span class="pass-wrong">密码错误</span>-->
                 </div>
                 <br>
                 <div class="input-group">
@@ -51,7 +57,7 @@
                 </div>
             </fieldset>
             <fieldset id="two" class="hidden">
-                <h1>选 择 学 院&微 信 号<small style="color: #34495e;">(选填)</small></h1>
+                <h1>选 择 学 院&职 位&微 信 号<small style="color: #34495e;">(选填)</small></h1>
                 <hr>
                 <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-fw fa-wechat"></i></span>
@@ -64,7 +70,7 @@
                         <i class="fa fa-fw fa-caret-down" id="icon-down"></i>
                     </a>
                     <div class="college-group hidden">
-                        <ul class="all-college" id="scroll">
+                        <ul class="all-college">
                             <li value="1">
                                 <a>计算机学院</a>
                             </li>
@@ -106,6 +112,30 @@
                             </li>
                             <li value="14">
                                 <a>创新学院</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="select-college">
+                    <a class="position-chosen" id="position-chosen">
+                        <span class="option-position" id="option-position">请选择职位</span>
+                        <i class="fa fa-fw fa-caret-down icon-down" id="position-icon-down"></i>
+                    </a>
+                    <div class="position-group hidden">
+                        <ul class="all-position">
+                            <li value="1">
+                                <a>其 他</a>
+                            </li>
+                            <li value="2">
+                                <a>讲 师</a>
+                            </li>
+                            <li value="3">
+                                <a>副教授</a>
+                            </li>
+                            <li value="4">
+                                <a>教 授</a>
                             </li>
                         </ul>
                     </div>
