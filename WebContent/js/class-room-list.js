@@ -3,17 +3,55 @@
  */
 
 
-/*--------------向后台发送修改教室信息请求-------------------*/
-function PostClassInfo(count,where,type){
-    var returnval = 0;
+/*--------------向后台发送修改,删除教室信息请求-------------------*/
+function DelClass(id){
+    var returnval = false;
     $.ajax({
        type: "POST",
-        url: "",
+        url: "ClassRoom_delete.action",
         async: false,
-        data: {"Classroom_count":count,"Classroom_where":where,"What":type},
+        data: {"Classroomid":id},
         dataType: "json",
         success: function (data) {
+            //bool
              returnval = JSON.parse(data).type;
+        },
+        error: function(jqHXR,textStatus,errorThrown){
+            alert("服务器请求出错： "+textStatus);
+        }
+    });
+    return returnval;
+}
+function ReClass(id,num,where){
+    var returnval = false;
+    $.ajax({
+        type: "POST",
+        url: "ClassRoom_update.action",
+        async: false,
+        data: {"Classroomid":id,"Classroom_num":num,"Classroom_where":where},
+        dataType: "json",
+        success: function (data) {
+            //bool
+            returnval = JSON.parse(data).type;
+        },
+        error: function(jqHXR,textStatus,errorThrown){
+            alert("服务器请求出错： "+textStatus);
+        }
+    });
+    return returnval;
+}
+/*获取教室列表*
+* roomlist*/
+function GetClassInfo(where){
+    var returnval = 0;
+    $.ajax({
+        type: "POST",
+        url: "ClassRoom_getList.action",
+        async: false,
+        data: {"Classwhere":where},
+        dataType: "json",
+        success: function (data) {
+            returnval = JSON.parse(data).type;
         },
         error: function(jqHXR,textStatus,errorThrown){
             alert("服务器请求出错： "+textStatus);
@@ -44,10 +82,11 @@ $("tbody").on("click",".btn-change",function(){
     $cache = $(this);
     //点击确定，执行请求
     $(".info-btn-one").click(function(){
-        var count = parseInt($(".info-change input").val());
+        var id = $cache.parent().prevAll().eq(3).text();
+        var num = parseInt($(".info-change input").val());
         var where = $(".info-change input").eq(1).val();
         //向后台发送请求
-        if(PostClassInfo(count,where,1) == 1){
+        if(ReClass(id,num,where) == true){
             $cache.parents('tr').removeAttr('class').addClass('warning');   //为行添加warning样式
         }
         $(".hide-screen").removeClass('hide-screen-finish');
@@ -77,7 +116,8 @@ $("tbody").on("click",".btn-del",function(){
     //点击确定，执行请求
     $(".ask-btn-one").click(function(){
         //向后台发送请求
-        if(PostClassInfo(0,0,0) == 1){
+        var id = $cache.parent().prevAll().eq(3).text();
+        if(DelClass(id) == true){
             $cache.parents('tr').removeAttr('class').addClass('danger');   //为行添加danger样式
             $cache.attr('disabled','disabled').addClass('table-btn-disabled');
             $cache.prevAll().eq(1).attr('disabled','disabled').addClass('table-btn-disabled');

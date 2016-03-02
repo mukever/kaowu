@@ -19,32 +19,33 @@ public class ClassRoom extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	//前段发送的添加教室字段
-	private String Classname;
-	private String Classnum;
+	private String Classroomid;
+	private String Classroomnum;
 	
 	//既是教室的属性也是 前段查询教学楼教室列表的字段
-	private String Classwhere;
+	private String Classroomwhere;
 	
 	//向前段返回的json数据
 	private String result;
 	
-	public String getClassname() {
-		return Classname;
+	
+	public String getClassroomid() {
+		return Classroomid;
 	}
-	public void setClassname(String classname) {
-		this.Classname = classname;
+	public void setClassroomid(String classroomid) {
+		Classroomid = classroomid;
 	}
-	public String getClassnum() {
-		return Classnum;
+	public String getClassroomnum() {
+		return Classroomnum;
 	}
-	public void setClassnum(String classnum) {
-		this.Classnum = classnum;
+	public void setClassroomnum(String classroomnum) {
+		Classroomnum = classroomnum;
 	}
-	public String getClasswhere() {
-		return Classwhere;
+	public String getClassroomwhere() {
+		return Classroomwhere;
 	}
-	public void setClasswhere(String classwhere) {
-		this.Classwhere = classwhere;
+	public void setClassroomwhere(String classroomwhere) {
+		Classroomwhere = classroomwhere;
 	}
 	public String getResult() {
 		return result;
@@ -81,20 +82,20 @@ public class ClassRoom extends ActionSupport {
 	public String add() {
 		//暂时先不管用户的session
 		//check();
-		ClassRoomBean cRoomBean = new ClassRoomBean(Classname, Classnum, Classname);
+		ClassRoomBean cRoomBean = new ClassRoomBean(Classroomid, Classroomnum, Classroomwhere);
 		//调用底层DAO 向数据库中添加信息
 		boolean ok = ClassDAO.add(cRoomBean);
 		JSONObject jsonObject = new JSONObject();
 		//向前段返回处理结果
 		jsonObject.put("result", ok);
 		result = jsonObject.toString();
-		return "classinfo";
+		return "add";
 	}
 	
 	//删除教室信息
 	public String delete() {
 		
-		boolean ok = ClassDAO.delete(Classname);
+		boolean ok = ClassDAO.delete(Classroomid);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("type", ok);
 		result = jsonObject.toString();
@@ -104,13 +105,21 @@ public class ClassRoom extends ActionSupport {
 	//前台查询教学楼
 	public String  getList() {
 		
-		
-		List<ClassRoomBean> list = ClassDAO.getListbywhere(Classwhere);
+		List<ClassRoomBean> list = ClassDAO.getListbywhere(Classroomwhere);
 		JSONArray jsonArray = JSONArray.fromObject(list); 
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("roomlist", jsonArray);
 		result = jsonObject.toString();
 		return "getList";
+	}
+	//更新教学楼教室信息
+	public String  update() {
+		
+		boolean ok = ClassDAO.query(Classroomid, Classroomnum, Classroomwhere);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("type", ok);
+		result = jsonObject.toString();
+		return "update";
 	}
 	
 }

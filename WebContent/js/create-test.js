@@ -162,6 +162,83 @@ $(".calendar-day ul li").click(function(){
     }
 });
 
+/*--------------------------------------------------------------选择时间的插件--------------------------------------------------*/
+var h = parseInt($("#time-h").val());
+var m = parseInt($("#time-m").val());
+$(".time-h-up").on("click", function () {
+    if(h+1 == 24){
+        $("#time-h").val("00");
+        h = 0;
+    }
+    else{
+        $("#time-h").val(++h);
+    }
+    FullTime();
+});
+$(".time-h-down").on("click", function () {
+    if(h-1 == 0){
+        $("#time-h").val("00");
+        h = 24;
+    }
+    else{
+        $("#time-h").val(--h);
+    }
+    FullTime();
+});
+$(".time-m-up").on("click", function () {
+    if(m+10 == 60){
+        $("#time-h").val(++h);
+        $("#time-m").val("00");
+        m = 0;
+    }
+    else{
+        $("#time-m").val(m+=10);
+    }
+    FullTime();
+});
+$(".time-m-down").on("click", function () {
+    if(m-10 == 0){
+        $("#time-m").val("00");
+        m = 0;
+    }
+    else if(m-10 < 0){
+        $("#time-h").val(--h);
+        $("#time-m").val(50);
+        m = 50;
+    }
+    else{
+        $("#time-m").val(m-=10);
+    }
+    FullTime();
+});
+/*构造完整时间*/
+function GetTime(){
+    var h = $("#time-h").val();
+    var m = $("#time-m").val();
+    return h+":"+m;
+}
+function FullTime(){
+    $(".use").val(GetTime());
+}
+/*弹出选择框*/
+$("#begin-time,#end-time").on("click", function () {
+    for(var i = 0;i < 4;i++){
+        if($("input").eq(i).hasClass('use')){
+            $("input").eq(i).removeClass('use');
+        }
+    }
+    $(this).addClass('use');
+   $(".time-chosen").addClass('time-chosen-show');
+});
+/*隐藏选择框*/
+$(".fa-close").on("click", function () {
+    $(".time-chosen").removeClass('time-chosen-show');
+});
+/*点击确定填充输入框*/
+$(".time-chosen-bottom [type='button']").on("click", function () {
+    FullTime();
+    $(".time-chosen").removeClass('time-chosen-show');
+});
 /*----------验证输入的信息-------------*/
 function Check(){
     var status = true;

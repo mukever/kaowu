@@ -39,6 +39,9 @@ $(document).ready(function(){
     $(".class-flip a").eq(1).click(function () {
         window.location.href = "Gradeadd.html";
     });
+    $(".class-flip a").eq(0).click(function () {
+        window.location.href = "Gradelist.html";
+    });
     $(".test-flip a").eq(0).click(function () {
         window.location.href = "Testlist.html";
     });

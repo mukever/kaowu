@@ -5,16 +5,17 @@
 var GRADEID;
 var GRADENAME;
 var GRADENUM;
-/*发送数据*/
+/*发送班级数据，添加班级*/
 function PostGradeInfo(id,name,num){
-    var status = 0;
+    var status = false;
     $.ajax({
         type: "POST",
-        url: "",
+        url: "Grade_add.action",
         async: false,
         data: {"Gradeid":id,"Gradename":name,"Gradenum":num},
         dataType: "json",
         success: function (data) {
+            //bool
             status = JSON.parse(data).type;
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -83,7 +84,7 @@ $(".btn-post").click(function(){
     if(CheckForm() == false){
         return;
     }
-    if(PostGradeInfo(GRADEID,GRADENAME,GRADENUM) == 0){
+    if(PostGradeInfo(GRADEID,GRADENAME,GRADENUM) == false){
         return;
     }
     ShowSuccess();

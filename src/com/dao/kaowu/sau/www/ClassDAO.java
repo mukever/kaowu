@@ -18,8 +18,8 @@ public class ClassDAO {
         Connection connection = null;
     	
     	connection = DBUnit.getConn();
-    	String ck = "select * from db_classroom where classname='"+cRoomBean.getClassRoomname()+"'";
-    	String sql = "insert into db_classroom(classname,classnum,classwhere) values('"+cRoomBean.getClassRoomname()+"','"+cRoomBean.getClassRoomNum()+"','"+cRoomBean.getClassRoomwhere()+"')";
+    	String ck = "select * from db_classroom where classid='"+cRoomBean.getClassRoomname()+"'";
+    	String sql = "insert into db_classroom(classid,classnum,classwhere) values('"+cRoomBean.getClassRoomname()+"','"+cRoomBean.getClassRoomNum()+"','"+cRoomBean.getClassRoomwhere()+"')";
     	try {
     		
 			Statement statement = connection.createStatement();
@@ -49,16 +49,16 @@ public class ClassDAO {
 	    	ClassRoomBean c = null;
 	    	connection = DBUnit.getConn();
 	    	
-	    	String sql = "select * from db_classroom  where  classname='"+id+"'";
+	    	String sql = "select * from db_classroom  where  classid='"+id+"'";
 	    	
 	    	try {
 	    		Statement statement = connection.createStatement();
 	    		ResultSet resultSet = statement.executeQuery(sql);
 	    		while(resultSet.next()){
-	    			String classname = resultSet.getString("classname");
+	    			String classid = resultSet.getString("classid");
 	    			String classnum = resultSet.getString("classnum");
 	    			String classwhere = resultSet.getString("classwhere");
-	    		    c = new ClassRoomBean(classname,classnum, classwhere);
+	    		    c = new ClassRoomBean(classid,classnum, classwhere);
 	    		}
 	    		closeConnection(connection);
 	    	} catch (SQLException e) {
@@ -87,10 +87,10 @@ public class ClassDAO {
     		Statement statement = connection.createStatement();
     		ResultSet resultSet = statement.executeQuery(sql);
     		while(resultSet.next()){
-    			String classname = resultSet.getString("classname");
+    			String classid = resultSet.getString("classid");
     			String classnum = resultSet.getString("classnum");
     			String classwhere = resultSet.getString("classwhere");
-    			list.add(new ClassRoomBean(classname,classnum, classwhere));
+    			list.add(new ClassRoomBean(classid,classnum, classwhere));
     		}
     		closeConnection(connection);
     	} catch (SQLException e) {
@@ -120,9 +120,9 @@ public class ClassDAO {
 	    		Statement statement = connection.createStatement();
 	    		ResultSet resultSet = statement.executeQuery(sql);
 	    		while(resultSet.next()){
-	    			String classname = resultSet.getString("classname");
+	    			String classid = resultSet.getString("classid");
 	    			String classnum = resultSet.getString("classnum");
-	    			list.add(new ClassRoomBean(classname,classnum, classwhere));
+	    			list.add(new ClassRoomBean(classid,classnum, classwhere));
 	    		}
 	    		closeConnection(connection);
 	    	} catch (SQLException e) {
@@ -138,13 +138,13 @@ public class ClassDAO {
 			return list;
 	    }
 	
-	public static boolean delete(String classname) {
+	public static boolean delete(String classid) {
 	    	
 	    	Connection connection = null;
 	    	
 	    	connection = DBUnit.getConn();
 	    	
-	    	String sql = "delete from db_classroom where  classname='"+classname+"'";
+	    	String sql = "delete from db_classroom where  classid='"+classid+"'";
 	 
 	    	try {
 	    		
@@ -167,12 +167,16 @@ public class ClassDAO {
 	    }
 	
 	//更新信息
-		public static boolean query(String Classname,String Classnum) {
+		public static boolean query(String Classroomid,String Classroomnum,String Classroomwhere) {
 		    	
 		    	Connection connection = null;
 		    	connection = DBUnit.getConn();
 		    	
-		    	String sql = "update db_classroom  set classnum='"+Classnum+"' where  classname='"+Classname+"'";
+		    	String sql = "update db_classroom  "
+		    			+ "set classnum='"+Classroomnum
+		    			+"' classwhere='"+Classroomwhere
+		    			+"' where  classid='"+Classroomid+"'";
+		    			
 		    	System.out.println(sql);
 		    	try {
 		    		Statement statement = connection.createStatement();
@@ -188,6 +192,7 @@ public class ClassDAO {
 		    				e1.printStackTrace();
 		    			}
 		    		}
+		    		return false;
 		    	}
 				return true ;
 		    }

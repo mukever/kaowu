@@ -56,13 +56,16 @@
 		
 		<!-- 年级 -->
 		<action name="Grade_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
-			<result name="add" type="json">
+			<!--添加信息  -->
+			 <result name="add" type="json">
 				<param name="root">result</param>
 			 </result>
-			<result name="delete" type="json">
+			 <!-- 删除信息 -->
+			 <result name="delete" type="json">
 				<param name="root">result</param>
 			 </result>
-			<result name="getList" type="json">
+			 <!-- 获取信息列表 -->
+			 <result name="getList" type="json">
 				<param name="root">result</param>
 			 </result>
 		</action>
@@ -70,25 +73,25 @@
 		
 		<!-- 教室 -->
 		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
-		
-			<result name="delete" type="json">
+			<!--添加信息  -->
+			 <result name="add" type="json">
 				<param name="root">result</param>
 			 </result>
-			
-			<result name="classinfo" type="json">
-				<param name="root">result</param>
-			 </result>
-			 
+			 <!-- 删除教学楼教室信息 -->
 			 <result name="delete" type="json">
 				<param name="root">result</param>
 			 </result>
 			 
 			 <!-- 获取每个教学楼的教室信息 -->
-			<result name="getList" type="json">
+			 <result name="getList" type="json">
+				<param name="root">result</param>
+			 </result>
+			 <!-- 更新教学楼教室信息 -->
+			 <result name="update" type="json">
 				<param name="root">result</param>
 			 </result>
 			 
-			<result name="success">/index.html</result>
+			 <result name="success">/index.html</result>
 		</action>
 		
 		

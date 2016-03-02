@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
+<div class="hide-screen hidden"></div>
 <!--顶部导航栏开始-->
 <div class="header">
     <ul class="header-right">

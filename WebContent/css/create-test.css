@@ -189,3 +189,117 @@
     margin-left: 1%;
      float: left;
 }
+ /*选择时间的样式*/
+.time-chosen-show{
+    top: -190px!important;
+    opacity: 1!important;
+    animation: time-chosen-show .2s ease-out;
+}
+@keyframes time-chosen-show {
+    from{top: -260px;
+        opacity: 0;}
+    to{top: -190px;
+        opacity: 1;}
+}
+.time-chosen{
+    position: relative;
+    float: right;
+    top: -260px;
+    right: 630px;
+    opacity: 0;
+    width: 180px;
+    height: 217px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 20px #555;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-transition: all .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -ms-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+.time-chosen p{
+    margin: 5px 0;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: Consolas;
+}
+.time-chosen p i{
+    position: relative;
+    font-size: small;
+    /*margin: 0 5px;*/
+    top: -10px;
+    left: 10px;
+    color: #bbb
+}
+.time-chosen p i:hover{
+    color: #8c8c8c;
+}
+.time-chosen ul{
+    /*text-align: center;*/
+    padding-left: 2px;
+}
+.time-chosen ul li{
+    display: inline-block;
+    text-align: center;
+    margin-left: 36px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.time-chosen ul li:hover{
+    background-color: #eee;
+    /*border: 1px solid rgb(221,221,221)!important;*/
+    box-shadow: 0 0 0 1px rgb(221,221,221);
+}
+.time-chosen-text{
+    padding-left: 37px!important;
+}
+.time-chosen-text li{
+    display: block;
+    width: 25px;
+    height: 26px;
+    margin: 0!important;
+    cursor: default!important;
+}
+.time-chosen-text li:hover{
+    background-color: #fff!important;
+    box-shadow: 0 0 0 0 #fff!important;
+}
+.time-chosen [type="text"]{
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgb(221, 221, 221);
+    text-align: center;
+}
+.time-chosen-bottom{
+    height: 42px;
+    background-color: #f5f5f5;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.time-chosen-bottom [type="button"]{
+    position: relative;
+    top: 8px;
+    left: 118px;
+    color: #fff;
+    width: 40px;
+    height: 25px;
+    background-color: #337ab7;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+.time-chosen-bottom [type="button"]:hover{
+    background-color: #286090;
+}
+.time-chosen-bottom [type="button"]:active{
+    background-color: #204d74;
+}

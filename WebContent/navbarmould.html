@@ -11,6 +11,7 @@
     <link href="css/create-test.css" rel="stylesheet">
 </head>
 <body>
+<div class="hide-screen hidden"></div>
     <!--顶部导航栏开始-->
     <div class="header">
         <ul class="header-right">
@@ -185,6 +186,27 @@
                         <span class="form-control-feedback"><i class="fa fa-fw fa-asterisk" style="font-size: small"></i></span>
                     </div>
                     <input type="button" class="table-btn-success btn-form-one" id="btn-form-one" value="下一步">
+                    <div class="time-chosen">
+                        <p>Pick a Time<i class="fa fa-close"></i></p>
+                        <hr style="margin: 5px 0">
+                        <ul>
+                            <li class="time-h-up"><i class="fa fa-fw fa-chevron-up"></i></li>
+                            <li class="time-m-up"><i class="fa fa-fw fa-chevron-up"></i></li>
+                        </ul>
+                        <ul class="time-chosen-text">
+                            <li><input type="text" value="9" id="time-h"></li>
+                            <li><span style="font-weight: 900;">:</span></li>
+                            <li><input type="text" value="00" id="time-m"></li>
+                        </ul>
+                        <ul>
+                            <li class="time-h-down"><i class="fa fa-fw fa-chevron-down"></i></li>
+                            <li class="time-m-down"><i class="fa fa-fw fa-chevron-down"></i></li>
+                        </ul>
+                        <hr style="margin-top: 5px;margin-bottom: 0" size="2">
+                        <div class="time-chosen-bottom">
+                            <input type="button" value="ok">
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset class="hidden" id="two">
                     <div class="room-chosen"></div>

@@ -1,6 +1,5 @@
 package com.bean.kaowu.sau.www;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 public class ClassRoomBean {
 	

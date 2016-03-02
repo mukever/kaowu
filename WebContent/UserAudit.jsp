@@ -15,11 +15,11 @@
 <%@ include file="cache.jsp" %>
 <!--内容区开始-->
 <div class="page-wrapper">
-    <div class="hide-screen hidden"></div>
     <div class="ask hidden">
         <i class="fa fa-fw fa-warning fa-3x"></i>
         <span class="askone">确定这样做？</span>
         <span class="asktwo">此操作不可逆！</span>
+        <hr style="margin: 0;position:relative; top: 30px">
         <button class="table-btn-success ask-btn-one">确&nbsp&nbsp&nbsp定</button>
         <button class="table-btn-danger ask-btn-two">取&nbsp&nbsp&nbsp消</button>
     </div>
@@ -38,7 +38,7 @@
             <br>
             <div class="table-title">
                 <span class="table-title-icon"><i class="fa fa-fw fa-flag"></i></span>
-                <span><%request.getSession().getAttribute("College"); %></span>
+                <span>计算机学院</span>
                 <span>监考人员注册信息</span>
             </div>
             <table class="table table-bordered table-striped table-hover">

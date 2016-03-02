@@ -83,9 +83,8 @@
 <div class="page-wrapper">
     <!--蒙版开始-->
     <div class="ask hidden">
-        <!--<i class="fa fa-fw fa-close" style="position: relative;top: -21px;left: 273px;color: #000"></i>-->
         <i class="fa fa-fw fa-warning fa-3x"></i>
-        <span class="askone">确定删除本次考试?</span>
+        <span class="askone">确定删除这个班级?</span>
         <span class="asktwo">此操作不可逆！</span>
         <hr style="margin: 0;position:relative; top: 30px">
         <button class="table-btn-success ask-btn-one">确&nbsp&nbsp&nbsp定</button>
@@ -94,52 +93,35 @@
     <!--蒙版结束-->
     <div class="show-position">
         <span><i class="fa fa-fw fa-home"></i> Home</span>
-        <span><i class="fa fa-fw fa-angle-right"></i> 考试</span>
-        <span><i class="fa fa-fw fa-angle-right"></i> 考试列表</span>
+        <span><i class="fa fa-fw fa-angle-right"></i> 班级</span>
+        <span><i class="fa fa-fw fa-angle-right"></i> 班级列表</span>
     </div>
     <div class="content">
         <hr style="width: 100%;border: 0;border-top: 2px solid #eee;border-bottom: 2px solid #fff;border-top-color: #dadada">
         <div class="test-info">
             <div class="table-title">
-                <span class="table-title-icon"><i class="fa fa-fw fa-edit"></i></span>
+                <span class="table-title-icon"><i class="fa fa-fw fa-users"></i></span>
                 <span>计算机学院</span>
-                <span>考试信息</span>
+                <span>班级信息</span>
             </div>
             <table class="table table-bordered table-hover table-striped">
                 <thead>
-                    <tr>
-                        <th>名 称</th>
-                        <th>教 室</th>
-                        <th>时 间</th>
-                        <th>监考教师</th>
-                        <th>参考班级</th>
-                        <th>备 注</th>
-                        <th>操 作</th>
-                    </tr>
+                <tr>
+                    <th>班 级 编 号</th>
+                    <th>班 级 名 称</th>
+                    <th>人 数</th>
+                    <th>操 作</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>高数期中</th>
-                        <th>C101</th>
-                        <th>2016-05-12&nbsp;&nbsp;&nbsp;<code>09:00-11:00</code></th>
-                        <th>于毅&nbsp;&&nbsp;李宇轩</th>
-                        <th><kbd>软件1434010501</kbd>&nbsp;&&nbsp;<kbd>网络1434010402</kbd></th>
-                        <th>无</th>
-                        <th>
-                            <button class="table-btn-danger btn-del">删&nbsp;&nbsp;&nbsp;除</button>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>大物期中</th>
-                        <th>B201</th>
-                        <th>2016-05-12&nbsp;&nbsp;&nbsp;<code>14:00-16:00</code></th>
-                        <th>于毅&nbsp;&&nbsp;李宇轩</th>
-                        <th><kbd>软件1434010501</kbd>&nbsp;&&nbsp;<kbd>网络1434010402</kbd></th>
-                        <th>无</th>
-                        <th>
-                            <button class="table-btn-danger btn-del">删&nbsp;&nbsp;&nbsp;除</button>
-                        </th>
-                    </tr>
+                <tr>
+                    <th>1434010501</th>
+                    <th>14级软件工程</th>
+                    <th>30</th>
+                    <th>
+                        <button class="table-btn-danger btn-del">删&nbsp;&nbsp;&nbsp;除</button>
+                    </th>
+                </tr>
                 </tbody>
             </table>
             <ul class="pagination">
@@ -154,5 +136,5 @@
 </body>
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/navbarmould.js"></script>
-<script src="js/test-list.js"></script>
+<script src="js/grade-list.js"></script>
 </html>

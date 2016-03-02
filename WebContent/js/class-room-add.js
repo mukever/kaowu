@@ -6,16 +6,17 @@
 var CLASSROOMID;
 var CLASSROOMNUM;
 var CLASSROOMFATHER;
-/*发送数据*/
+/*发送教室数据，添加教室*/
 function PostClassRoomInfo(id,num,where){
-    var status = 0;
+    var status = false;
     $.ajax({
         type: "POST",
-        url: "",
+        url: "Classroom_add.action",
         async: false,
         data: {"Classroomid":id,"Classroomnum":num,"Classroomwhere":where},
         dataType: "json",
         success: function (data) {
+            //bool
             status = JSON.parse(data).type;
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -33,14 +34,14 @@ $(".btn-default").click(function(){
    }
 });
 $(".dropdown-menu li a").click(function(){
-    for(var i = 0;i < 5;i++){
-        $(".dropdown-menu li").eq(i).removeAttr('class');
-    }
-    $(this).parent().addClass('active');
+    $(this).parent().addClass('active').siblings().removeAttr('class');
    $(".option").text($(this).text());
    $(".btn-group").removeClass('open');
     if($(".option").text() == '其他'){
         $(".detail").removeClass('hidden');
+    }
+    else{
+        $(".detail").addClass('hidden');
     }
 });
 $(document).click(function(e){
@@ -105,7 +106,7 @@ function CheckForm(){
     else{
         SetSuccess(2);
     }
-    if(CLASSROOMFATHER == ""){
+    if(CLASSROOMFATHER == "" || CLASSROOMFATHER != 'A' && CLASSROOMFATHER != 'B' && CLASSROOMFATHER != 'C'){
         SetError(4);
         status = false;
     }
@@ -118,7 +119,7 @@ $(".btn-post").click(function(){
    if(CheckForm() == false){
        return;
    }
-    if(PostClassRoomInfo(CLASSROOMID,CLASSROOMNUM,CLASSROOMFATHER) == 0){
+    if(PostClassRoomInfo(CLASSROOMID,CLASSROOMNUM,CLASSROOMFATHER) == false){
         return;
     }
     ShowSuccess();
