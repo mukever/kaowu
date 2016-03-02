@@ -2,6 +2,8 @@ package com.action.kaowu.sau.www;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
@@ -9,27 +11,48 @@ import com.bean.kaowu.sau.www.ClassRoomBean;
 import com.dao.kaowu.sau.www.ClassDAO;
 import com.opensymphony.xwork2.ActionSupport;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 public class ClassRoom extends ActionSupport {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String Classname;
-	private String Classnum;
+	//前段发送的添加教室字段
+	private String classname;
+	private String classnum;
 	
+	//既是教室的属性也是 前段查询教学楼教室列表的字段
+	private String classwhere;
+	
+	//向前段返回的json数据
+	private String result;
 	public String getClassname() {
-		return Classname;
+		return classname;
 	}
 	public void setClassname(String classname) {
-		Classname = classname;
+		this.classname = classname;
 	}
 	public String getClassnum() {
-		return Classnum;
+		return classnum;
 	}
 	public void setClassnum(String classnum) {
-		Classnum = classnum;
+		this.classnum = classnum;
+	}
+	public String getClasswhere() {
+		return classwhere;
+	}
+	public void setClasswhere(String classwhere) {
+		this.classwhere = classwhere;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
 	}
 	
-	
+	//用户检测用户是否登录
 	public void check() {
 		//解决乱码，用于页面输出
 			HttpServletResponse response=null;
@@ -52,59 +75,39 @@ public class ClassRoom extends ActionSupport {
 			}
 			
 		}
+	
+	//添加教室信息
 	public String add() {
-		
-		check();
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		ClassRoomBean cRoomBean = new ClassRoomBean(Classname, Classnum);
+		//暂时先不管用户的session
+		//check();
+		ClassRoomBean cRoomBean = new ClassRoomBean(classname, classnum, classname);
+		//调用底层DAO 向数据库中添加信息
 		boolean ok = ClassDAO.add(cRoomBean);
-		if(ok){
-			session.setAttribute("Msg", "信息添加成功");
-		}else{
-			session.setAttribute("Msg", "信息添加失败");
-		}
-		//System.out.println(session.getAttribute("id") +"添加教室信息");
-		//System.out.println("数据更行成功");
-		
+		JSONObject jsonObject = new JSONObject();
+		//向前段返回处理结果
+		jsonObject.put("result", ok);
+		result = jsonObject.toString();
 		return "classinfo";
 	}
+	
+	//删除教室信息
 	public String delete() {
-	    check();
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		String id = ServletActionContext.getRequest().getParameter("id");
-		ClassDAO.delete(id);
-		//System.out.println(session.getAttribute("id") +"添加教室信息");
-		System.out.println("数据删除成功");
+		
+		ClassDAO.delete(classname);
 		
 		return  "delete";
 	}
-	public String update() {
-		check();
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		String id = ServletActionContext.getRequest().getParameter("id");
-		//先获取相关信息  返回到页面在页面上显示
-		//直接在页面上根据相关信息更改
-		ClassRoomBean c = ClassDAO.getClassinfo(id);
-		session.setAttribute("classname",c.getClassRoomname());
-		session.setAttribute("classnum" ,c.getClassRoomNum());
+	
+	//前台查询教学楼
+	public String  getList() {
 		
-		return  "updata";
+		
+		List<ClassRoomBean> list = ClassDAO.getListbywhere(classwhere);
+		JSONArray jsonArray = JSONArray.fromObject(list); 
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("roomlist", jsonArray);
+		result = jsonObject.toString();
+		return "getList";
 	}
-	public String query() {
-		check();
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		String name = Classname;
-		String num = Classnum;
-		
-		boolean ok = ClassDAO.query(Classname,Classnum);
-		if(ok){
-			session.setAttribute("Msg", "信息添加成功");
-		}else{
-			session.setAttribute("Msg", "信息添加失败");
-		}
-		//System.out.println(session.getAttribute("id") +"添加教室信息");
-		//System.out.println("数据更行成功");
-		
-		return "classinfo";
-	}
+	
 }

@@ -42,11 +42,20 @@
 			<result name="updata">/Gradeinfoupdate.jsp</result>
 			<result name="success">/index.html</result>
 		</action>
+		
+		
 		<!-- 教室 -->
 		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
-			<result name="updata">/Classinfoupdate.jsp</result>
+		
 			<result name="delete">/Classinfo.jsp</result>
-			<result name="classinfo">/Classinfo.jsp</result>
+			
+			<result name="classinfo" type="json">
+				<param name="root">result</param>
+			 </result>
+			 <!-- 获取每个教学楼的教室信息 -->
+			<result name="getList" type="json">
+				<param name="root">result</param>
+			 </result>
 			<result name="success">/index.html</result>
 		</action>
 		<!-- 用户登录信息记录 -->
@@ -60,6 +69,10 @@
 		<action name="WeChat_*" class="com.action.kaowu.sau.www.WeChat" method="{1}">
 			
 		</action>
+		
+		
+		
+		
 
 		<!-- 下面的action 没有配置 -->
 		<action name="Quit" class="com.action.kaowu.sau.www.Quit">

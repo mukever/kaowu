@@ -19,7 +19,7 @@ public class ClassDAO {
     	
     	connection = DBUnit.getConn();
     	String ck = "select * from db_classroom where classname='"+cRoomBean.getClassRoomname()+"'";
-    	String sql = "insert into db_classroom(classname,classnum) values('"+cRoomBean.getClassRoomname()+"','"+cRoomBean.getClassRoomNum()+"')";
+    	String sql = "insert into db_classroom(classname,classnum,classwhere) values('"+cRoomBean.getClassRoomname()+"','"+cRoomBean.getClassRoomNum()+"','"+cRoomBean.getClassRoomwhere()+"')";
     	try {
     		
 			Statement statement = connection.createStatement();
@@ -55,9 +55,10 @@ public class ClassDAO {
 	    		Statement statement = connection.createStatement();
 	    		ResultSet resultSet = statement.executeQuery(sql);
 	    		while(resultSet.next()){
-	    			String classname = resultSet.getString(2);
-	    			String classnum = resultSet.getString(3);
-	    		    c = new ClassRoomBean(classname,classnum);
+	    			String classname = resultSet.getString("classname");
+	    			String classnum = resultSet.getString("classnum");
+	    			String classwhere = resultSet.getString("classwhere");
+	    		    c = new ClassRoomBean(classname,classnum, classwhere);
 	    		}
 	    		closeConnection(connection);
 	    	} catch (SQLException e) {
@@ -86,9 +87,10 @@ public class ClassDAO {
     		Statement statement = connection.createStatement();
     		ResultSet resultSet = statement.executeQuery(sql);
     		while(resultSet.next()){
-    			String classname = resultSet.getString(2);
-    			String classnum = resultSet.getString(3);
-    			list.add(new ClassRoomBean(classname,classnum));
+    			String classname = resultSet.getString("classname");
+    			String classnum = resultSet.getString("classnum");
+    			String classwhere = resultSet.getString("classwhere");
+    			list.add(new ClassRoomBean(classname,classnum, classwhere));
     		}
     		closeConnection(connection);
     	} catch (SQLException e) {
@@ -104,14 +106,46 @@ public class ClassDAO {
 		return list;
     }
 	
-	public static void delete(String id) {
+	//查看数据库所有的信息
+		public static List<ClassRoomBean> getListbywhere(String classwhere) {
+	    	
+	    	List<ClassRoomBean>  list = new ArrayList<ClassRoomBean>();
+	    	Connection connection = null;
+	    	
+	    	connection = DBUnit.getConn();
+	    	
+	    	String sql =  "select * from db_classroom  where  classwhere='"+classwhere+"'";
+	    	
+	    	try {
+	    		Statement statement = connection.createStatement();
+	    		ResultSet resultSet = statement.executeQuery(sql);
+	    		while(resultSet.next()){
+	    			String classname = resultSet.getString("classname");
+	    			String classnum = resultSet.getString("classnum");
+	    			list.add(new ClassRoomBean(classname,classnum, classwhere));
+	    		}
+	    		closeConnection(connection);
+	    	} catch (SQLException e) {
+	    		e.printStackTrace();
+	    		if(connection!=null){
+	    			try {
+	    				connection.close();
+	    			} catch (SQLException e1) {
+	    				e1.printStackTrace();
+	    			}
+	    		}
+	    	}
+			return list;
+	    }
+	
+	public static void delete(String classname) {
 	    	
 	    	Connection connection = null;
 	    	
 	    	connection = DBUnit.getConn();
 	    	
-	    	String sql = "delete from db_classroom where  classname='"+id+"'";
-	    	//System.out.println(sql);
+	    	String sql = "delete from db_classroom where  classname='"+classname+"'";
+	 
 	    	try {
 	    		
 	    		Statement statement = connection.createStatement();
