@@ -93,6 +93,7 @@ public class Login  extends ActionSupport  {
 			
 		    college_num = AdminDAO.getCollege(user);
 		    String college_string = college_map.get(college_num);
+		    session.setAttribute("College_num", college_num);
 		    session.setAttribute("College",college_string);
 	       
 		}

@@ -19,31 +19,32 @@ public class ClassRoom extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	//前段发送的添加教室字段
-	private String classname;
-	private String classnum;
+	private String Classname;
+	private String Classnum;
 	
 	//既是教室的属性也是 前段查询教学楼教室列表的字段
-	private String classwhere;
+	private String Classwhere;
 	
 	//向前段返回的json数据
 	private String result;
+	
 	public String getClassname() {
-		return classname;
+		return Classname;
 	}
 	public void setClassname(String classname) {
-		this.classname = classname;
+		this.Classname = classname;
 	}
 	public String getClassnum() {
-		return classnum;
+		return Classnum;
 	}
 	public void setClassnum(String classnum) {
-		this.classnum = classnum;
+		this.Classnum = classnum;
 	}
 	public String getClasswhere() {
-		return classwhere;
+		return Classwhere;
 	}
 	public void setClasswhere(String classwhere) {
-		this.classwhere = classwhere;
+		this.Classwhere = classwhere;
 	}
 	public String getResult() {
 		return result;
@@ -80,7 +81,7 @@ public class ClassRoom extends ActionSupport {
 	public String add() {
 		//暂时先不管用户的session
 		//check();
-		ClassRoomBean cRoomBean = new ClassRoomBean(classname, classnum, classname);
+		ClassRoomBean cRoomBean = new ClassRoomBean(Classname, Classnum, Classname);
 		//调用底层DAO 向数据库中添加信息
 		boolean ok = ClassDAO.add(cRoomBean);
 		JSONObject jsonObject = new JSONObject();
@@ -93,8 +94,10 @@ public class ClassRoom extends ActionSupport {
 	//删除教室信息
 	public String delete() {
 		
-		ClassDAO.delete(classname);
-		
+		boolean ok = ClassDAO.delete(Classname);
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("type", ok);
+		result = jsonObject.toString();
 		return  "delete";
 	}
 	
@@ -102,7 +105,7 @@ public class ClassRoom extends ActionSupport {
 	public String  getList() {
 		
 		
-		List<ClassRoomBean> list = ClassDAO.getListbywhere(classwhere);
+		List<ClassRoomBean> list = ClassDAO.getListbywhere(Classwhere);
 		JSONArray jsonArray = JSONArray.fromObject(list); 
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("roomlist", jsonArray);

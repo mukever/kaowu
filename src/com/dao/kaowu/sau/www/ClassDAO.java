@@ -138,7 +138,7 @@ public class ClassDAO {
 			return list;
 	    }
 	
-	public static void delete(String classname) {
+	public static boolean delete(String classname) {
 	    	
 	    	Connection connection = null;
 	    	
@@ -161,7 +161,9 @@ public class ClassDAO {
 	    				e1.printStackTrace();
 	    			}
 	    		}
+	    		return false;
 	    	}
+	    	return true;
 	    }
 	
 	//更新信息

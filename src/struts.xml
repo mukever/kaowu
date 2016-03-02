@@ -9,55 +9,7 @@
 			</result>
 			<result name="input">/login.html</result>
 		</action>
-		<!-- 教书监考用户注册 -->
-		<action name="Register" class="com.action.kaowu.sau.www.Register">
-			 <result name = "success"  type="json">
-				<param name="root">result</param>
-			 </result>
-		</action>
-		<!-- 返回对应学院的所有用户信息 -->
-		<action name="AuditUser" class="com.action.kaowu.sau.www.AuditUser">
-			 <result name = "success"  type="json">
-				<param name="root">result</param>
-			 </result>
-		</action>
-		<!-- 审核结果 -->
-		<action name="Audit" class="com.action.kaowu.sau.www.Audit">
-			 <result name = "success"  type="json">
-				<param name="root">result</param>
-			 </result>
-		</action>
-		<!-- 返回用户相关信息 -->
-		<action name="UserInfo" class="com.action.kaowu.sau.www.UserInfo">
-			 <result name = "success"  type="json">
-				<param name="root">result</param>
-			 </result>
-		</action>
 		
-		<!-- 年级 -->
-		<action name="Greate_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
-			<result name="add">/Gradeinfo.jsp</result>
-			<result name="delete">/Gradeinfo.jsp</result>
-			<result name="info">/Gradeinfo.jsp</result>
-			<result name="updata">/Gradeinfoupdate.jsp</result>
-			<result name="success">/index.html</result>
-		</action>
-		
-		
-		<!-- 教室 -->
-		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
-		
-			<result name="delete">/Classinfo.jsp</result>
-			
-			<result name="classinfo" type="json">
-				<param name="root">result</param>
-			 </result>
-			 <!-- 获取每个教学楼的教室信息 -->
-			<result name="getList" type="json">
-				<param name="root">result</param>
-			 </result>
-			<result name="success">/index.html</result>
-		</action>
 		<!-- 用户登录信息记录 -->
 		<action name="Sign_*" class="com.action.kaowu.sau.www.Sign" method="{1}">
 			<result name="success">/idnex.html</result>
@@ -66,9 +18,80 @@
 			</result>
 
 		</action>
+		<!-- 微信服务器发送的信息请求处理action -->
 		<action name="WeChat_*" class="com.action.kaowu.sau.www.WeChat" method="{1}">
 			
 		</action>
+		
+		
+		<!-- 教书监考用户注册 -->
+		<action name="Register" class="com.action.kaowu.sau.www.Register">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		
+		<!-- 返回对应学院的所有用户信息 -->
+		<action name="AuditUser" class="com.action.kaowu.sau.www.AuditUser">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		
+		<!-- 审核结果 -->
+		<action name="Audit" class="com.action.kaowu.sau.www.Audit">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		<!-- 返回用户相关信息 -->
+		<action name="UserInfo" class="com.action.kaowu.sau.www.UserInfo">
+			 <result name = "success"  type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		<!-- 年级 -->
+		<action name="Grade_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
+			<result name="add" type="json">
+				<param name="root">result</param>
+			 </result>
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			 </result>
+			<result name="getList" type="json">
+				<param name="root">result</param>
+			 </result>
+		</action>
+		
+		
+		<!-- 教室 -->
+		<action name="ClassRoom_*" class="com.action.kaowu.sau.www.ClassRoom" method="{1}">
+		
+			<result name="delete" type="json">
+				<param name="root">result</param>
+			 </result>
+			
+			<result name="classinfo" type="json">
+				<param name="root">result</param>
+			 </result>
+			 
+			 <result name="delete" type="json">
+				<param name="root">result</param>
+			 </result>
+			 
+			 <!-- 获取每个教学楼的教室信息 -->
+			<result name="getList" type="json">
+				<param name="root">result</param>
+			 </result>
+			 
+			<result name="success">/index.html</result>
+		</action>
+		
+		
 		
 		
 		
