@@ -8,7 +8,7 @@ public class GradeBean {
 	
 	private String Gradeid = null;
 	private String Gradename = null;
-	private String Gradenum = null;
+	private int Gradenum  ;
 	private String Gradecollege = null;
 	
 	public String getGradecollege() {
@@ -29,20 +29,20 @@ public class GradeBean {
 	public void setGradename(String gradename) {
 		Gradename = gradename;
 	}
-	public String getGradenum() {
+	public int getGradenum() {
 		return Gradenum;
 	}
-	public void setGradenum(String gradenum) {
+	public void setGradenum(int gradenum) {
 		Gradenum = gradenum;
 	}
-	public GradeBean(String gradeid, String gradename, String gradenum, String gradecollege) {
+	public GradeBean(String gradeid, String gradename, int gradenum, String gradecollege) {
 		super();
 		Gradeid = gradeid;
 		Gradename = gradename;
 		Gradenum = gradenum;
 		Gradecollege = gradecollege;
 	}
-	public GradeBean(String gradeid, String gradename, String gradenum) {
+	public GradeBean(String gradeid, String gradename, int gradenum) {
 		super();
 		Gradeid = gradeid;
 		Gradename = gradename;

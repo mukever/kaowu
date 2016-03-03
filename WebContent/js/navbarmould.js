@@ -5,27 +5,27 @@
 
 var username = $.trim($(".header-right span").eq(0).text());    //取出用户名并做去空格处理
 var returnval = 0;
-//$.ajax({
-//    type: "POST",
-//    url: "UserInfo.action",
-//    async: false,
-//    data:{"ID":username,"Type":1},
-//    dataType: "json",
-//    success: function(data){
-//        data = JSON.parse(data);
-//        returnval = data;
-//        if(data.count == 0){
-//            $(".audit span").addClass('.hidden');
-//            $(".audit").css('padding-left','0');
-//        }
-//        else{
-//            $(".audit span").text(data.count);
-//        }
-//    },
-//    error: function(jqXHR,textstatus,errorThrown){
-//        alert("服务器请求出错: " + textstatus);
-//    }
-//});
+$.ajax({
+   type: "POST",
+   url: "UserInfo.action",
+   async: false,
+   data:{"ID":username,"Type":1},
+   dataType: "json",
+   success: function(data){
+       data = JSON.parse(data);
+       returnval = data;
+       if(data.count == 0){
+           $(".audit span").addClass('.hidden');
+           $(".audit").css('padding-left','0');
+       }
+       else{
+           $(".audit span").text(data.count);
+       }
+   },
+   error: function(jqXHR,textstatus,errorThrown){
+       alert("服务器请求出错: " + textstatus);
+   }
+});
 
 /*返回用户信息接口*/
 function ReturnUserInfo(){

@@ -21,8 +21,10 @@ public class GradeDAO {
     	
     	connection = DBUnit.getConn();
     	
-    	String sql = "insert into db_grade(gradeid,gradename,gradenum,gradecollege) values('"+gradeBean.getGradeid()+"','"+gradeBean.getGradename()+"','"+gradeBean.getGradenum()+"','"+gradeBean.getGradecollege()+"')";
+    	String sql = "insert into db_grade(gradeid,gradename,gradenum,college) values('"+gradeBean.getGradeid()+"','"+gradeBean.getGradename()+"','"+gradeBean.getGradenum()+"','"+gradeBean.getGradecollege()+"')";
+    	
     	try {
+    		
 			Statement statement = connection.createStatement();
 			
 			statement.executeUpdate(sql);
@@ -43,22 +45,22 @@ public class GradeDAO {
     	return true;
 	}
     //查询所在学院班级的信息
-	public static List<GradeBean> getList(String gradecollege) {
+	public static List<GradeBean> getList(String college) {
     	
     	List<GradeBean>  list = new ArrayList<GradeBean>();
     	Connection connection = null;
     	
     	connection = DBUnit.getConn();
     	
-    	String sql = "select * from db_grade where gardecollege='"+gradecollege+"'";
-    	
+    	String sql = "select * from db_grade  where  college='"+college+"'";
+    	System.out.println(sql);
     	try {
     		Statement statement = connection.createStatement();
     		ResultSet resultSet = statement.executeQuery(sql);
     		while(resultSet.next()){
     			String gradename = resultSet.getString("gradename");
-	    		String gradenum = resultSet.getString("gardenum");
-	    		String gradeid = resultSet.getString("gardeid");
+	    		int gradenum = resultSet.getInt("gradenum");
+	    		String gradeid = resultSet.getString("gradeid");
     			list.add(new GradeBean(gradeid, gradename, gradenum));
     		}
     		closeConnection(connection);

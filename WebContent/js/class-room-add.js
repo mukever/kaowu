@@ -11,7 +11,7 @@ function PostClassRoomInfo(id,num,where){
     var status = false;
     $.ajax({
         type: "POST",
-        url: "Classroom_add.action",
+        url: "ClassRoom_add.action",
         async: false,
         data: {"Classroomid":id,"Classroomnum":num,"Classroomwhere":where},
         dataType: "json",

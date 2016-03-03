@@ -115,7 +115,7 @@ public class ClassDAO {
 	    	connection = DBUnit.getConn();
 	    	
 	    	String sql =  "select * from db_classroom  where  classwhere='"+classwhere+"'";
-	    	
+	    	System.out.println(sql);
 	    	try {
 	    		Statement statement = connection.createStatement();
 	    		ResultSet resultSet = statement.executeQuery(sql);
@@ -167,17 +167,15 @@ public class ClassDAO {
 	    }
 	
 	//更新信息
-		public static boolean query(String Classroomid,String Classroomnum,String Classroomwhere) {
+		public static boolean update(String Classroomid,String Classroomnum,String Classroomwhere) {
 		    	
 		    	Connection connection = null;
 		    	connection = DBUnit.getConn();
 		    	
 		    	String sql = "update db_classroom  "
-		    			+ "set classnum='"+Classroomnum
-		    			+"' classwhere='"+Classroomwhere
-		    			+"' where  classid='"+Classroomid+"'";
-		    			
-		    	System.out.println(sql);
+		    			+ "set classnum='"+Integer.parseInt(Classroomnum)
+		    			+"', classwhere='"+Classroomwhere
+		    			+"' where classid='"+Classroomid+"'";
 		    	try {
 		    		Statement statement = connection.createStatement();
 		    	    statement.executeUpdate(sql);

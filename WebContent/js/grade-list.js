@@ -2,10 +2,11 @@
  * Created by format on 2016/2/29.
  */
 
+var GRADE_INFO;	//学院所有班级信息
 /*---------获取班级信息----------*
 * gradelist*/
 function GetGradeInfo(college){
-    var status = 0;
+    var status = false;
     $.ajax({
         type: "POST",
         url: "Grade_getList.action",
@@ -13,8 +14,8 @@ function GetGradeInfo(college){
         data: {"College":college},
         dataType: "json",
         success: function(data){
-
-            status = 1;
+        	 GRADE_INFO = JSON.parse(data);
+        	 status = true;
         },
         error: function(jqXHR,textStatus,errorThrown){
             alert("服务器请求出错： " + textStatus);
@@ -33,7 +34,7 @@ function DelGrade(gradeid){
         dataType: "json",
         success: function(data){
             //bool
-            status = JSON.parse(data).type;
+        	status = JSON.parse(data).type;
         },
         error: function(jqXHR,textStatus,errorThrown){
             alert("服务器请求出错： " + textStatus);
@@ -52,7 +53,7 @@ $(".btn-del").click(function(){
     $(".ask-btn-one").click(function(){
         //向后台发送请求
         var id = $cache.parent().prevAll().eq(2).text();
-        if(DelGrade(id) == false){
+        if(DelGrade("1434010") == false){
             $cache.parents('tr').removeAttr('class').addClass('danger');   //为行添加danger样式
             $cache.attr('disabled','disabled').addClass('table-btn-disabled');
             //$cache.prevAll().eq(1).attr('disabled','disabled').addClass('table-btn-disabled');
@@ -142,4 +143,6 @@ function UpDatePagStatus(){
 /*文档加载完成后执行的操作*/
 $(document).ready(function(){
     UpDatePagStatus();
+    GetGradeInfo(1);
+    alert(GRADE_INFO.gradelist);
 });

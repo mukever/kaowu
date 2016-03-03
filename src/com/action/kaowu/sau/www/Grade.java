@@ -24,7 +24,7 @@ public class Grade extends ActionSupport{
 	//班级人数
 	private String Gradenum;
 	//班级所属学院
-	private String Gradecollege;
+	private String College;
 	//向前段页面返回json数据
 	private String  result;
 	
@@ -53,12 +53,12 @@ public class Grade extends ActionSupport{
 		Gradenum = gradenum;
 	}
 
-	public String getGradecollege() {
-		return Gradecollege;
+	public String getCollege() {
+		return College;
 	}
 
-	public void setGradecollege(String gradecollege) {
-		Gradecollege = gradecollege;
+	public void setCollege(String college) {
+		College = college;
 	}
 
 	public String getResult() {
@@ -96,38 +96,39 @@ public class Grade extends ActionSupport{
 	public String add() {
 //		check();
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		Gradecollege = (String) session.getAttribute("College_num");
-		GradeBean grate = new GradeBean(Gradename,Gradenum, Gradeid,Gradecollege);
+		College = (String) session.getAttribute("College_num");
+		GradeBean grate = new GradeBean(Gradeid,Gradename, Integer.parseInt(Gradenum),College);
 		//System.out.println(  "班级名称"+getGreatename() + "\n班级人数"+getGreatenum());
 		boolean ok = GradeDAO.addGrade(grate);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("type", ok);
-		setResult(jsonObject.toString());
+		result = jsonObject.toString();
 		return "add";
 	}
 	
 	
 	//删除班级信息
 	public String delete() {
-		check();
+		//check();
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		Gradecollege = (String) session.getAttribute("College_num");
-		boolean ok = GradeDAO.delete(Gradeid,Gradecollege);
+		College = (String) session.getAttribute("College_num");
+		boolean ok = GradeDAO.delete(Gradeid,College);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("type", ok);
-		setResult(jsonObject.toString());
+		result = jsonObject.toString();
+		System.out.println(result);
 		return  "delete";
 	}
 	
 	public String getList() {
 		//创建session对象
-		HttpSession session = ServletActionContext.getRequest().getSession();
-		String gradecollege = (String) session.getAttribute("gradecollege");
-		ArrayList<GradeBean> list = (ArrayList<GradeBean>) GradeDAO.getList(gradecollege);
+		
+		ArrayList<GradeBean> list = (ArrayList<GradeBean>) GradeDAO.getList(College);
 		JSONArray jsonArray = JSONArray.fromObject(list); 
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("gradelist", jsonArray);
-		setResult(jsonObject.toString());
+		result = jsonObject.toString();
+	
 		return "getList";
 	}
 

@@ -55,7 +55,7 @@
 		</action>
 		
 		<!-- 年级 -->
-		<action name="Grade_*" class="com.action.kaowu.sau.www.Greate" method="{1}">
+		<action name="Grade_*" class="com.action.kaowu.sau.www.Grade" method="{1}">
 			<!--添加信息  -->
 			 <result name="add" type="json">
 				<param name="root">result</param>
@@ -93,12 +93,6 @@
 			 
 			 <result name="success">/index.html</result>
 		</action>
-		
-		
-		
-		
-		
-		
 
 		<!-- 下面的action 没有配置 -->
 		<action name="Quit" class="com.action.kaowu.sau.www.Quit">

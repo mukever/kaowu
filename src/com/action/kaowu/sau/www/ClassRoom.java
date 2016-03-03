@@ -115,7 +115,7 @@ public class ClassRoom extends ActionSupport {
 	//更新教学楼教室信息
 	public String  update() {
 		
-		boolean ok = ClassDAO.query(Classroomid, Classroomnum, Classroomwhere);
+		boolean ok = ClassDAO.update(Classroomid, Classroomnum, Classroomwhere);
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("type", ok);
 		result = jsonObject.toString();

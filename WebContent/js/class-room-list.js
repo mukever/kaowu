@@ -2,10 +2,10 @@
  * Created by format on 2016/2/27.
  */
 
-
+var CLASS_INFO;	//教室信息
 /*--------------向后台发送修改,删除教室信息请求-------------------*/
 function DelClass(id){
-    var returnval = false;
+    var status = false;
     $.ajax({
        type: "POST",
         url: "ClassRoom_delete.action",
@@ -14,50 +14,53 @@ function DelClass(id){
         dataType: "json",
         success: function (data) {
             //bool
-             returnval = JSON.parse(data).type;
+             status = JSON.parse(data).type;
         },
         error: function(jqHXR,textStatus,errorThrown){
             alert("服务器请求出错： "+textStatus);
         }
     });
-    return returnval;
+    return status;
 }
 function ReClass(id,num,where){
-    var returnval = false;
+    var status = false;
     $.ajax({
         type: "POST",
         url: "ClassRoom_update.action",
         async: false,
-        data: {"Classroomid":id,"Classroom_num":num,"Classroom_where":where},
+        data: {"Classroomid":id,"Classroomnum":num,"Classroomwhere":where},
         dataType: "json",
         success: function (data) {
             //bool
-            returnval = JSON.parse(data).type;
+            status = JSON.parse(data).type;
         },
         error: function(jqHXR,textStatus,errorThrown){
             alert("服务器请求出错： "+textStatus);
         }
     });
-    return returnval;
+    return status;
 }
 /*获取教室列表*
 * roomlist*/
 function GetClassInfo(where){
-    var returnval = 0;
+    var status = false;
     $.ajax({
         type: "POST",
         url: "ClassRoom_getList.action",
         async: false,
-        data: {"Classwhere":where},
+        data: {"Classroomwhere":where},
         dataType: "json",
         success: function (data) {
-            returnval = JSON.parse(data).type;
+        	alert(data);
+            CLASS_INFO = JSON.parse(data);
+            alert(CLASS_INFO.roomlist);
+            status = true;
         },
         error: function(jqHXR,textStatus,errorThrown){
             alert("服务器请求出错： "+textStatus);
         }
     });
-    return returnval;
+    return status;
 }
 /*------------表格分组标题------------*/
 $(".class-room-navbar li").click(function(){
@@ -86,7 +89,7 @@ $("tbody").on("click",".btn-change",function(){
         var num = parseInt($(".info-change input").val());
         var where = $(".info-change input").eq(1).val();
         //向后台发送请求
-        if(ReClass(id,num,where) == true){
+        if(ReClass("c102","100","C") == true){
             $cache.parents('tr').removeAttr('class').addClass('warning');   //为行添加warning样式
         }
         $(".hide-screen").removeClass('hide-screen-finish');
@@ -117,7 +120,7 @@ $("tbody").on("click",".btn-del",function(){
     $(".ask-btn-one").click(function(){
         //向后台发送请求
         var id = $cache.parent().prevAll().eq(3).text();
-        if(DelClass(id) == true){
+        if(DelClass("c101") == true){
             $cache.parents('tr').removeAttr('class').addClass('danger');   //为行添加danger样式
             $cache.attr('disabled','disabled').addClass('table-btn-disabled');
             $cache.prevAll().eq(1).attr('disabled','disabled').addClass('table-btn-disabled');
@@ -207,4 +210,6 @@ function UpDatePagStatus(){
 /*文档加载完成后执行的操作*/
 $(document).ready(function(){
    UpDatePagStatus();
+   GetClassInfo("C");
+   // alert(CLASS_INFO);
 });
